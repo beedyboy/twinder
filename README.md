@@ -2,8 +2,9 @@ Twinder is a computer test based application that can be used by various organiz
 
 Twinder is in three phases,
 
-one for the clients(students, employees, etc.),
-##
- One for examiner, and
-  ##lastly, the brain that connects the first two together.
+1). One for the clients(students, employees, etc.),
+#
+ 2). One for examiner, and
+  #
+  3). lastly, the brain that connects the first two together.
 
