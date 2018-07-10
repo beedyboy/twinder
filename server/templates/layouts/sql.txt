@@ -1,0 +1,173 @@
+CREATE TABLE `systemadmin` (
+  `adminId` int(11) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(20) NOT NULL,
+  `lastName` varchar(30) NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `area_privilege` int(11) NOT NULL,
+  `active` varchar(3) DEFAULT 'YES',
+  PRIMARY KEY (`adminId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE `beedy_exam_result` (
+  `resultId` int(11) NOT NULL AUTO_INCREMENT,
+  `bankId` int(11) NOT NULL,
+  `stdEmail` varchar(30) NOT NULL,
+  `score` varchar(20) NOT NULL,
+  `Date` varchar(20) NOT NULL,
+  `CurrentSession` int(11) NOT NULL,
+  `CurrentTerm` int(11) NOT NULL,
+  `Percentage` varchar(10) DEFAULT NULL,
+  `stdAddNum` int(11) NOT NULL,
+  PRIMARY KEY (`resultId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `beedy_interfaces` (
+  `Interface_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Interface_Name` varchar(20) NOT NULL,
+  `Interface_url` varchar(50) NOT NULL,
+  `Active` tinyint(4) NOT NULL,
+  PRIMARY KEY (`Interface_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE `beedy_question_bank` (
+  `Question_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `bankId` int(11) NOT NULL,
+  `Exam_Question` text NOT NULL,
+  `Exam_Option_A` varchar(50) NOT NULL,
+  `Exam_Option_B` varchar(50) NOT NULL,
+  `Exam_Option_C` varchar(50) NOT NULL,
+  `Exam_Option_D` varchar(50) NOT NULL,
+  `Exam_Question_Logo` varchar(1230) DEFAULT NULL,
+  `Exam_Answer` varchar(2) NOT NULL,
+  PRIMARY KEY (`Question_Id`),
+  KEY `Exam_Id` (`bankId`),
+  KEY `bankId` (`bankId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+CREATE TABLE `beedyfincategory` (
+  `FinCategoryId` int(11) NOT NULL AUTO_INCREMENT,
+  `stdCatId` int(11) NOT NULL,
+  `genStdBatchId` int(11) NOT NULL,
+  `SchoolTermId` int(11) NOT NULL,
+  `DiscountPer` varchar(20) NOT NULL,
+  `FinTotAmount` varchar(20) NOT NULL,
+  `StdToPay` varchar(20) NOT NULL,
+  `DueDate` varchar(20) NOT NULL,
+  `Fine` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`FinCategoryId`),
+  KEY `stdCatId` (`stdCatId`),
+  KEY `genStdBatchId` (`genStdBatchId`),
+  KEY `SchoolTermId` (`SchoolTermId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE `beedygroup` (
+  `groupId` int(11) NOT NULL AUTO_INCREMENT,
+  `groupName` varchar(30) NOT NULL,
+  `dateCreated` varchar(30) NOT NULL,
+  `active` varchar(3) DEFAULT NULL,
+  PRIMARY KEY (`groupId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE `beedygroupsub` (
+  `bankId` int(11) NOT NULL AUTO_INCREMENT,
+  `groupId` int(11) NOT NULL,
+  `classCourseId` int(11) NOT NULL,
+  `Exam_Date` varchar(20) NOT NULL,
+  `Exam_Instruction` varchar(50) DEFAULT NULL,
+  `Exam_Duration` varchar(10) NOT NULL,
+  `Total_Question` int(11) NOT NULL,
+  `faceId` int(11) DEFAULT NULL,
+  `Mark` varchar(5) DEFAULT NULL,
+  `Show_Result` varchar(5) NOT NULL,
+  `Active` varchar(3) NOT NULL,
+  PRIMARY KEY (`bankId`),
+  KEY `groupId` (`groupId`),
+  KEY `classCourseId` (`classCourseId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `beedyschoolclasstype` (
+  `clsTypeId` int(11) NOT NULL AUTO_INCREMENT,
+  `classType` varchar(20) NOT NULL,
+  PRIMARY KEY (`clsTypeId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `beedyschooldata` (
+  `beedySchoolName` varchar(60) NOT NULL,
+  `beedySchoolMotto` varchar(60) NOT NULL,
+  `beedySchoolLogo` varchar(60) DEFAULT NULL,
+  `beedySchoolAddress` varchar(60) DEFAULT NULL,
+  `beedySchoolEmail` varchar(50) NOT NULL,
+  `beedySchoolPhoneNum` varchar(50) NOT NULL,
+  `beedySchoolWebsite` varchar(30) NOT NULL,
+  `CurrentSession` int(11) DEFAULT NULL,
+  `CurrentTerm` int(11) DEFAULT NULL,
+  KEY `currentTerm` (`CurrentTerm`),
+  KEY `CurrentSession` (`CurrentSession`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `beedyschoolterm` (
+  `SchoolTermId` int(11) NOT NULL AUTO_INCREMENT,
+  `SchoolTermName` varchar(20) NOT NULL,
+  PRIMARY KEY (`SchoolTermId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `beedystudentprofile` (
+  `stdAddNum` int(11) NOT NULL AUTO_INCREMENT,
+  `stdSurname` varchar(25) NOT NULL,
+  `stdFirstName` varchar(25) NOT NULL,
+  `stdMiddleName` varchar(25) DEFAULT NULL,
+  `stdDob` varchar(20) NOT NULL,
+  `stdPob` varchar(20) DEFAULT NULL,
+  `stdGender` varchar(8) NOT NULL,
+  `stdPicture` varchar(50) DEFAULT NULL,
+  `stdBloodGrp` varchar(5) NOT NULL,
+  `stdNationality` varchar(15) NOT NULL,
+  `stdCatId` int(11) NOT NULL,
+  `genStudentClassId` int(11) NOT NULL,
+  `stdAddress` varchar(100) NOT NULL,
+  `stdTelephone` varchar(22) NOT NULL,
+  `stdEmail` varchar(30) NOT NULL,
+  `genStdBatchId` int(11) NOT NULL,
+  `stdState` varchar(20) NOT NULL,
+  `stdPSchName` varchar(50) DEFAULT NULL,
+  `stdPSchClass` varchar(20) DEFAULT NULL,
+  `stdPSchYear` varchar(20) DEFAULT NULL,
+  `stdPgName` varchar(50) NOT NULL,
+  `stdPgRelationship` varchar(20) NOT NULL,
+  `stdPgAddress` varchar(50) DEFAULT NULL,
+  `stdPgTelephone` varchar(22) NOT NULL,
+  `stdPgOccupation` varchar(20) DEFAULT NULL,
+  `stdPgEmail` varchar(30) DEFAULT NULL,
+  `Active` int(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`stdAddNum`),
+  KEY `stdCatId` (`stdCatId`),
+  KEY `genStdBatchId` (`genStdBatchId`),
+  KEY `genStudentClassId` (`genStudentClassId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+
+
+CREATE TABLE `coursesub` (
+  `crsTypeId` int(11) NOT NULL AUTO_INCREMENT,
+  `clsTypeId` int(11) NOT NULL,
+  `courseType` varchar(20) NOT NULL,
+  PRIMARY KEY (`crsTypeId`),
+  KEY `clsTypeId` (`clsTypeId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+

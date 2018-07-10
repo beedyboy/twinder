@@ -1,0 +1,41 @@
+$obj = $('<object>');
+$obj.attr("data","http://infolab.stanford.edu/pub/papers/google.pdf");
+$obj.attr("type","application/pdf");
+$obj.addClass("w100");
+
+$("#pdfdiv_content").append($obj);
+#pdfdiv_content{
+	width:100%;
+	height:250px;
+	border:1px solid #0000FF;
+	position:relative;
+	height:800px;
+}
+.w100{
+	width:100%;
+	position:absolute;
+	height:100%;
+	}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+<div id="pdfdiv_content"></div>
+
+
+
+222222222222222////
+
+<div class="PDF">
+   <object data="your.pdf" type="application/pdf" width="750" height="600">
+       alt : <a href="your.pdf">your.pdf</a>
+   </object>
+</div>
+
+
+
+
+
+
+
+
+
+
+<embed src="pdfFiles/interfaces.pdf" width="600" height="500" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">

@@ -1,0 +1,363 @@
+.error_msg{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	color:#F00;
+}
+.error_border{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	color:#F00;
+	border:#F00 solid 1px;
+}
+ 
+
+/* button */
+.btn-cbt-success{ 
+background: #E8A8C7;
+color:#000;
+font:bold 15px 'Aleo';
+}
+
+.highlight{ 
+background: #E8A8C7;
+color:#000;
+font:bold 13px 'Aleo';
+}
+
+.firstelement{
+	position: absolute;
+	left: 10%;
+	width:80%;
+	height:30px;  
+	color:#000;
+	margin-bottom:2px;
+}
+
+
+/* Old CSS Developer End Start */
+ 
+ 
+
+ .innerMain{
+margin:0;
+border:1px solid #E8A8C7; 
+border-radius:10px;  
+	  }
+ .innerMain-left{
+margin:0;
+border:1px solid #E8A8C7;
+border-left: none;
+border-radius:10px;  
+	  }
+	  .innerMain-right{
+margin:0;
+border:1px solid #E8A8C7;
+border-right: 0px;
+border-radius:10px;  
+	  } 
+	  .option-log {    
+	margin:0;  
+	 background:#E8A8C7;
+border:1px solid #E8A8C7;
+	 width: 100%;
+	color:#000; 
+}
+.pageGuide{  
+background: #E8A8C7;
+font:bold 25px 'Aleo';
+border:1px solid #000;
+border-radius:5px; 
+color:#000;
+padding:3px;
+width: 100%; 
+} 
+.topviewtab{  
+background: #E8A8C7;
+font:bold 35px 'Aleo';
+border:1px solid #000;
+border-radius:5px; 
+color:#fff;
+padding:3px;
+width: 100%; 
+} 
+
+.leftContainer{
+	 
+background:#E8A8C7;
+border:1px solid #000;
+border-radius:5px;  
+top:15px;
+width:100%;
+color:#fff;
+font:bold 15px 'Aleo';
+text-align:center;
+padding:2px;
+margin:4px;
+margin-top:15px;
+ }
+
+ .clock{ 
+border:1px solid #E8A8C7;
+border-radius:2px;  
+color:#CE578B;
+font:bolder 15px 'Arial'; 
+ }
+ .beedyTemplate{ 
+border:1px solid #51C9E1;
+border-radius:2px; 
+border-top: none; 
+height: auto;
+width:100%;
+color:#000;
+font:bold 15px 'Aleo'; 
+ }
+ .beedyTemplate2{ 
+border:2px solid #51C9E1;
+border-radius:2px;  
+height: auto; 
+width:100%;
+color:#000;
+font:bold 15px 'Aleo'; 
+ }
+.rightContainer{  
+width:95%;
+color:#fff;
+font:bold 15px 'Aleo';
+text-align:center;
+padding:2px; 
+ }
+ 
+.rightFormat{
+	 
+background:#E8A8C7;
+border:1px solid #000;
+border-radius:8px;  
+width:100%;
+color:#000;
+font:bold 15px 'Aleo';
+text-align:center;
+padding:2px;
+margin:4px;
+margin-top:2px;
+ }
+
+.beedy-sub-title{
+	 
+background:#E8A8C7;
+border:1px solid #fff;
+border-radius:2px;   
+color:#fff;
+font:bolder 15px 'Aleo';
+text-align:center;
+margin-bottom:5px;
+padding:2px; 
+ }
+
+.navbar {
+  position: relative;
+  min-height: 32px;
+  margin-bottom: 10px;
+  background-color: #E8A8C7;
+  border: 1px solid #CE578B;
+  margin-top: 2px; 
+}
+
+.navbar:before,
+.navbar:after {
+  display: table;
+  content: " ";
+}
+
+.navbar:after {
+  clear: both;
+}
+
+.navbar:before,
+.navbar:after {
+  display: table;
+  content: " ";
+}
+
+.navbar:after {
+  clear: both;
+}
+
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #FFF;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  border: 1px solid #CE578B;
+  border-radius: 4px;
+}
+
+.navbar-toggle:hover,
+.navbar-toggle:focus {
+  background-color: #dddddd;
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #cccccc;
+  border-radius: 5px;
+}
+
+.navbar-toggle .icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+
+.navbar-nav {
+  margin-right: -10px;
+  margin-left: -15px;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 8px;
+  line-height: 10px;
+  font-weight:bolder;
+  color: #000; 
+margin-right:2px; 
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+  color: #333333;
+  background-color: transparent;
+}
+
+.navbar-nav > .active > a,
+.navbar-nav > .active > a:hover,
+.navbar-nav > .active > a:focus {
+  color: #FFF;
+  background-color: #E8A8C7;
+}
+@media (min-width: 768px) {
+  .navbar {
+    border-radius: 4px;
+  }
+}
+
+		/* pink custom ends up here */
+
+
+.body_class{margin:0px; margin-top:30px; background: url(../images/bg_pink2.gif) #E8A8C7 center top fixed no-repeat ; font-family:Arial, Helvetica, sans-serif; font-size:12px; 
+color:#000000; text-decoration:none; }
+
+.body_pop{	background-color:#FAE5EE; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000000; text-decoration:none; }
+
+.b_box_in{	border:#FFFFFF solid 1px; background:#Dc699C; padding:1px; color:#FFFFFF;}
+
+.bgcolor_02{
+	background-color:#F4A6CD;
+	border:0 none;
+	color:#000000;
+	font-family:Tahoma;
+	font-size:12px;
+	font-weight:bold;
+	text-transform:uppercase;
+}
+
+
+.holiday_big_font{
+	font-size:24px;
+	font-weight:bold;
+}
+
+.admin {
+	font-family: tahoma;
+	font-size: 12px;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: none;
+}
+.wel {
+	font-family: tahoma;
+	font-size: 12px;
+	text-decoration: none;
+	font-weight: normal;
+} 
+.drop_size{
+	width:40px;
+	height:15px;
+}
+.bgtextcolor {
+	background-color:#EEFCFD;
+	color:#333333;
+	font-family: Tahoma;
+	font-size: 12px;
+	text-decoration: none;
+}
+.error_message{
+	font:Verdana;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration:normal;
+	font-weight: bold;
+	color:#FF3333;
+}
+.message{
+	font:Verdana;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-decoration:normal;
+	font-weight: bold;
+	color:#990000;
+}
+.odd{
+	background-color:#FFFFFF;
+}
+.even{
+	background-color: #FAE5EE;
+}
+.success_message{
+	font:Verdana;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	font-size: 12px;
+	font-weight:bold;
+	text-decoration: none;
+	background-color: #3A302F;
+}
+.error_messages{
+	font:Verdana;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#FFFFFF;
+	font-size: 12px;	
+	text-decoration: none;
+	background-color: #A80928;
+}
+.tbl_grid{
+	border: 1px solid #F4A6CD;  
+	border-collapse:collapse;
+}
+.tb2_grid{
+	border: 2px solid #F4A6CD;  
+	
+}
+  
+.welcometxt {
+	color:#000000;
+	font-weight:bold;
+}

@@ -1,0 +1,287 @@
+ /* icon customized section */
+ 
+ .beedy-addexam::before {
+    content:none!important;
+}
+.beedy-addexam {
+	 position: absolute;  
+    background-image:url(../images/db_add.ico);
+   margin:-3px 3px -2px 15px ; 
+    background-repeat:no-repeat;
+    background-size:cover;
+ height:20px;
+    width:20px;
+	 display: inline-block; 
+    } 
+	
+	.beedy-setexam::before {
+    content:none!important;
+}
+.beedy-setexam {
+	 position: absolute;  
+    background-image:url(../images/setexam.png);
+   margin:-3px 3px -2px 15px ; 
+    background-repeat:no-repeat;
+    background-size:cover;
+ height:20px;
+    width:20px;
+	 display: inline-block; 
+    }
+  .beedy-log-out::before {
+    content:none!important;
+}
+.beedy-log-out {
+	 position: absolute;  
+    background-image:url(../images/system-shutdown-3.ico);
+   margin:0 0 -2px -5px ; 
+    background-repeat:no-repeat;
+    background-size:cover;
+ height:20px;
+    width:20px;
+	 display: inline-block; 
+    }
+ 
+ .beedy-student::before {
+    content:none!important;
+}
+.beedy-student {
+	 position: absolute;  
+    background-image:url(../images/student_32.png);
+   margin:0 0 -2px -5px ; 
+    background-repeat:no-repeat;
+    background-size:cover;
+ height:20px;
+    width:20px;
+	 display: inline-block; 
+    }
+
+ .beedy-admin::before {
+    content:none!important;
+}
+.beedy-admin {
+	 position: absolute;  
+    background-image:url(../images/administrator_32.png);
+   margin:0 0 -2px -5px ; 
+    background-repeat:no-repeat;
+    background-size:cover;
+ height:20px;
+    width:20px;
+	 display: inline-block; 
+    }
+.beedy-class::before {
+    content:none!important;
+}
+.beedy-class {
+	 position: absolute;  
+    background-image:url(../images/class.jpg);
+   margin:0 0 -2px -5px ; 
+    background-repeat:no-repeat;
+    background-size:cover;
+ height:20px;
+    width:20px;
+	 display: inline-block; 
+    }
+	
+	.beedy-login-details::before {
+    content:none!important; 
+}
+.beedy-login-details {
+	 position: absolute;  
+    background-image:url(../images/login-icon.jpg);
+   margin:0 0 -2px -5px ; 
+    background-repeat:no-repeat;
+    background-size:cover;
+ height:20px;
+    width:20px;
+	 display: inline-block; 
+    }
+ /* icon customized section */
+ .cbt-2-left{
+	 left:2px;
+ }
+ .cbt-2-right{
+	width:98%;
+ }
+
+ 	
+.container-90
+{
+	position:absolute;
+	width: 99%;
+}
+.just-border{
+	background:#484848;
+color:#000;
+border:1px solid #ccc;
+border-radius:5px;
+}
+.narmal {
+	font-family: tahoma;
+	padding:2px;
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration: none;
+	color: #000000;
+}
+	
+
+#subName {
+	margin: 10px auto;
+	text-align: center;
+	width: 980px;
+}
+#subName a {
+	text-decoration: none;
+	padding-top:10px;
+	padding-bottom:5px;
+	padding-left:5px;
+	padding-right:5px;
+	border-radius:10px;
+	margin:5px;
+	box-shadow:0 5px 5px 2px #484848;
+	-moz-box-shadow:0 5px 5px 2px #484848;
+	-webkit-box-shadow:0 5px 5px 2px #484848;
+	border:1px solid #000;
+	background: #fff;
+	color: #222222;
+	font-size:20px;
+	display: inline-block;
+	width: 265px;
+	height: 85px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+	.loginform{
+		
+		margin-top:100px;
+		background-color:#693;
+		}
+		.ques{
+		
+		margin-top:50px;
+		}
+ 
+.username{
+	width:200px;
+	border-radius:5px;
+	margin-top:20px;
+	margin-bottom:10px;
+	
+	}
+	
+	strong {
+	font-family: Tahoma, Geneva, sans-serif;
+	color:#FFF;
+}
+ 
+	.dashboard a{
+		color:#FFF;
+		text-decoration:none;
+	
+		}
+		
+		.dashboard{
+		color:#FFF;
+		font-family:"Times New Roman", Times, serif;
+		font-size:24px;
+		font-weight:bold;
+		margin-top:50px;
+		text-decoration:none;
+		
+		}
+		
+		.dashboardcon{
+		margin-top:20px;
+		}
+		
+		.table{
+			color:#006;
+			font-family:Georgia, "Times New Roman", Times, serif;
+			font-size:16px;
+			
+			}
+			.rapi{
+				font-family:"Times New Roman", Times, serif;
+				font-weight:bold;
+				font-style:normal;
+				font-size:70px;
+				 color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+				}
+				
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+	color:#FFF;
+}
+
+a:active {
+    text-decoration:none;
+	color:#FFF;
+}
+
+.login{	margin-left: 0px;	margin-top: 35px;	margin-right: 0px;	margin-bottom: 0px; background:url(../images/bg_login.gif) center top no-repeat #95e3fc fixed; }
+
+.loginbg{ background:url(../images/login_new2.jpg) left top no-repeat; padding:8px 25px 10px 10px;
+height: 500px; }
+.login-form{top: 55px; position: absolute;}
+.login-btn{background:#D3B764;}
+.bb_mid{	background:url(../images/mid2.jpg) left top repeat-x #FFFFFF;}
+.school_header_font{ font-family:Arial, Helvetica, sans-serif; margin: 5px; padding: 10px; top:22px; position: absolute; font-size:26px; font-weight:500;  color:#333333; text-decoration:none; }
+
+
+.heading{	font-family: "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif; font-size:17px; padding-left:5px; color:#333333;}
+
+.form_txt{	font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; color:#000000; padding-left:30px; }
+
+.dot{	font-size:10px; color:#000000;}
+
+.heading2{	font-family: "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif; font-size:14px; padding-left:5px; font-weight:bold; color:#FF6600;}
+
+.txtbx{	width:160px; height:19px; border:#CCCCCC solid 1px; }
+.selectbx{ width:160px; height:22px; border:#CCCCCC solid 1px; }
+.selectbxlong{ height:19px; border:#CCCCCC solid 1px; }
+.messagebx{	width:160px; height:65px; border:#CCCCCC solid 1px; }	
+
+.copy{	font-family:Verdana, Arial, Helvetica, sans-serif; font-size:11px; color:#00CCCC; }
+
+
+.heading3{	font-family: "Lucida Grande", "Trebuchet MS", Verdana, Helvetica, sans-serif; font-size:17px; padding-left:5px; color:#333333;}
+
+.heading4{	font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#990033; text-transform:uppercase;}
+
+.test {
+	background-color:#036;
+	font-weight:bold;
+	font-size:24px;
+	}
+	.test a{
+		color:#FFF;
+
+		}
+		
+	.question{
+		color:#006;
+		font-family:Georgia, "Times New Roman", Times, serif;
+		font-size:18px;
+		font-weight:bold;}
+		
+		
+		#re{
+			font-size:18px;
+			font-weight:bold;
+			}
+			
+			tr{
+				color:#000033;}
+				.a{color:#FFF;
+				text-decoration:none;
+				}

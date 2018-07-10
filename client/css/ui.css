@@ -1,0 +1,83 @@
+#EmsContainer {
+	position: absolute;
+	width: 100%;
+	height: 860px;
+	z-index: 1;
+	top:0px;
+}
+#recruitHead {
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	background:#223174;
+	color:#E09B0F;
+	z-index: 1;
+	
+}
+#EmsLeftBar {
+	position: absolute;
+	width: 20%;
+	height: 759px;
+	z-index: 2;
+	top: 41px;
+}
+#MainContainer {
+	position: absolute;
+	width: 79%;
+	height: 759px;
+	z-index: 3;
+	left: 21%;
+	top: 41px;
+}
+#EmsFooter {
+	position: absolute;
+	width: 100%;
+	height: 55px;
+	background:#223174;
+	z-index: 4;
+	top: 805px;
+}
+
+/*recruitment container*/
+
+
+#recruitFormContainer {
+	position: absolute;
+	width: 100%;
+	height: 350px;
+	z-index: 1;
+	 
+}
+
+#signupFormContainer {
+	position: absolute;
+	width: 100%;
+	height: 350px;
+	z-index: 1;
+	 
+}
+
+.instruction{
+	list-style:square;
+	}
+	
+	#ProgressMade {
+		
+		position: absolute;
+	width: 79%;
+	height: 150px;
+	z-index: 3;
+	top:10px;
+	
+		}
+		
+		
+		#ContentContainer {
+				
+		position: absolute;
+	width: 79%;
+	height: 480px;
+	z-index: 3;
+	top:180px;
+	
+			}

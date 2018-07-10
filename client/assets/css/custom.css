@@ -1,0 +1,81 @@
+body {
+    color: #1f1f1f;
+    background: #E9EAED;
+    font-family: 'Lato', sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-size:14px !important;    
+}
+ 
+a, a:hover, a:focus {
+    text-decoration: none;
+    outline: none;
+    outline: 0;
+}
+input:focus, textarea:focus { outline: none; }
+table tr th { color: #688a7e;}
+*:focus {outline: none;}
+::selection {
+    background: #688a7e;
+    color: #fff;
+}
+::-moz-selection {
+    background: #688a7e;
+    color: #fff;
+}
+ 
+ .examTitle{
+	 background: #4278B6;
+	 color:#fff;
+	 height: 35px;
+	 text-align: center;
+    font-family: 'Lato', sans-serif;
+    padding: 10px !important;
+    margin: 0px !important;
+    font-size:20px !important;    
+ }
+ .examPanel{
+	 background: #ffffff;
+	  
+ }
+ .examPanelRL{
+	 background: #ffffff;
+	  min-height:500px;
+	 height:auto; 
+ } 
+ 
+ .questionPal{
+	 background: #ffffff;
+	  min-height:400px;
+	 height:auto; 
+	 overflow: auto;
+ } 
+ .lstColor{
+	 background: #67717A;
+ }
+ .footer{
+	 height:35px;
+	 width:100%;
+ }
+ .bodyMin{
+	 min-height:500px;
+	 height:auto; 
+ }
+  .allborder{
+	 border:1px solid #DCDCDC;
+ }
+ .pageGuide{
+	 background: #67717A; 
+	 height:3px;
+	 padding: 2px !important;
+    margin: 0px !important;
+ }
+ .subName{
+	 background: #E5EDF6;
+	 color:#000;
+	 height: 30px;
+	 text-align: center;
+	 width:40%;
+    font-family: 'Lato', sans-serif; 
+    font-size:14px !important;    
+ }
