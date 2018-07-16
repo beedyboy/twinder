@@ -14,7 +14,7 @@ $full_name= System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 1
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 2)."\t".
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 3);  
  $term = Database::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1); 
-$batch = Database::getName('genStudentBatches', 'genStdBatchId',$genStdBatchId,1);
+$batch = Database::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1);
 $head = $full_name."\t"."-".$batch."\t"."-".$term;
   $filename = $head.".doc"; //Change File type CSV/TXT etc
           
@@ -46,13 +46,13 @@ if(!empty($resultInd)):  ?>
 <?php
 foreach($resultInd as $LIST): 
 $bankId = $LIST['bankId']; 
-$subId = Database::getName('beedyGroupSub', 'bankId',$bankId,1);
- $Total_Question = Database::getName('beedyGroupSub', 'bankId',$bankId,7);
- $Mark = Database::getName('beedyGroupSub', 'bankId',$bankId,8);
+$subId = Database::getName('beedygroupsub', 'bankId',$bankId,1);
+ $Total_Question = Database::getName('beedygroupsub', 'bankId',$bankId,7);
+ $Mark = Database::getName('beedygroupsub', 'bankId',$bankId,8);
  $obt = $Total_Question * $Mark;
 ?>
 <tr>
-<td><?php echo Database::getName('beedySubjectList', 'subId', $subId, 1); ?> </td>
+<td><?php echo Database::getName('beedysubjectlist', 'subId', $subId, 1); ?> </td>
 <td><?php echo $LIST['Score']; ?> </td>
 <td><?php echo $obt ?> </td>
 <td><?php echo $LIST['Percentage']; ?> </td>

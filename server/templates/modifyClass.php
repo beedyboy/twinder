@@ -10,8 +10,8 @@ $loadStudentGroup = $GetSchool->loadStudentGroup();
 <i class="icon-plus-sign icon-large"></i>Add Class</a>		</p>
 <?php 
  
-$ClassName =System::getColById('beedyClassList', 'classId', $classId, 1);
-$groupId =System::getColById('beedyClassList', 'classId', $classId, 2);
+$ClassName =System::getColById('beedyclasslist', 'classId', $classId, 1);
+$groupId =System::getColById('beedyclasslist', 'classId', $classId, 2);
 ?>
 <div  class="row">
 <div class="col-md-12">

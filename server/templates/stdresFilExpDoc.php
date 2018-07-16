@@ -25,12 +25,12 @@ $D=6;
  $questionGivenSize= count($questionGiven);
 
   //var_dump($answers);
- $Mark = Database::getName('beedyGroupSub', 'bankId',$bankId,8);
- $Total_Question = Database::getName('beedyGroupSub', 'bankId',$bankId,7);
+ $Mark = Database::getName('beedygroupsub', 'bankId',$bankId,8);
+ $Total_Question = Database::getName('beedygroupsub', 'bankId',$bankId,7);
  $obt = $Total_Question * $Mark; 
   
-$subId = Database::getName('beedyGroupSub', 'bankId',$bankId,1);
- $js= Database::getName('beedySubjectList', 'subId', $subId, 1);
+$subId = Database::getName('beedygroupsub', 'bankId',$bankId,1);
+ $js= Database::getName('beedysubjectlist', 'subId', $subId, 1);
 $table = 'table_name';
 $outstr = NULL; 
 $full_name =  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 1)."\t".

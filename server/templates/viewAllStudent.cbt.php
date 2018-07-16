@@ -28,8 +28,8 @@ foreach($loadStudentProfile as $Profile):
 $i++;
 
 
-$className =System::getColById('beedyClassList', 'classId', $Profile['classId'], 1); 
-$groupId =System::getColById('beedyClassList', 'classId', $Profile['classId'], 2); 
+$className =System::getColById('beedyclasslist', 'classId', $Profile['classId'], 1); 
+$groupId =System::getColById('beedyclasslist', 'classId', $Profile['classId'], 2); 
 ?>
 <tr class="del<?php echo $Profile['stdAddNum']; ?>">
 <td align="center" class="hide"><?php echo $Profile['stdAddNum']; ?></td>

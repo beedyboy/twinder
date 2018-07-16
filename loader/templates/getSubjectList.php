@@ -1,7 +1,7 @@
 <?php 
 include('../includes/system.php');
 $classId = $_POST['classId'];
-$loadSubList = System::loadTblCond('beedySubjectList', 'classId', $classId); ?>
+$loadSubList = System::loadTblCond('beedysubjectlist', 'classId', $classId); ?>
 <select class="form-control" id="subId" name="subId" required>
 <?php 
 if(!empty($loadSubList)): 

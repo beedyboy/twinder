@@ -6,7 +6,7 @@ $classId=$_GET['classId'];
 //$classId=8;
 	
  
-$loadCourse = System::loadTblCond('beedyGroupSub', 'classId', $classId);  
+$loadCourse = System::loadTblCond('beedygroupsub', 'classId', $classId);  
  
  ?>
  <?php 

@@ -27,7 +27,7 @@
 	
 	<div class="black-img-white row"> 
 						 <div class="col-offset-lg-4 col-lg-8 pull-right">
-		<?php $loadStudentGroup = System::loadDistinct('exambankId','beedyGroupSub'); ?>
+		<?php $loadStudentGroup = System::loadDistinct('exambankId','beedygroupsub'); ?>
  <?php 
 if(!empty($loadStudentGroup)): 
 ?>
@@ -36,7 +36,7 @@ if(!empty($loadStudentGroup)):
 <?php
 foreach($loadStudentGroup as $Group):
 ?>	
-<option value="<?php echo $Group['exambankId']; ?>" ><?php echo System::getColById('beedyGroup', 'exambankId', $Group['exambankId'], 1); ?></option>
+<option value="<?php echo $Group['exambankId']; ?>" ><?php echo System::getColById('beedygroup', 'exambankId', $Group['exambankId'], 1); ?></option>
 <?php 
 endforeach;
 ?>
@@ -81,7 +81,7 @@ endif;
 	<div class="black-img-white row"> 
 						 <div class="col-offset-lg-4 col-lg-8 pull-right">
  
-<?php $loadTblCond1 = System::loadTblCond1('beedyInterfaces', 'Active', 1); ?>
+<?php $loadTblCond1 = System::loadTblCond1('beedyinterfaces', 'Active', 1); ?>
 <select class="form-control" id="getface" name="getface"  onChange="previewFace(this.value)">
 							<?php if(!empty($loadTblCond1)): ?> 
 

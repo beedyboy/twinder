@@ -7,13 +7,13 @@ $questionsString = $_GET['questions'];
 $bankId=$_GET['bankId'];
 ?>
 
-<?php $subId = Database::getName('beedyGroupSub', 'bankId',$bankId,1); ?>
-<?php $exambankId = Database::getName('beedyGroupSub', 'bankId',$bankId, 3); ?> 
-<?php $examTypeId = Database::getName('beedyGroupSub', 'bankId',$bankId, 2); ?>
+<?php $subId = Database::getName('beedygroupsub', 'bankId',$bankId,1); ?>
+<?php $exambankId = Database::getName('beedygroupsub', 'bankId',$bankId, 3); ?> 
+<?php $examTypeId = Database::getName('beedygroupsub', 'bankId',$bankId, 2); ?>
 <?php $examType = Database::getName('beedyexamtype', 'examTypeId', $examTypeId,1); ?>
-<?php $TotalQuestion = Database::getName('beedyGroupSub', 'bankId',$bankId,7); ?>
-<?php $mark = Database::getName('beedyGroupSub', 'bankId',$bankId,8); ?>
-<?php $show_result = Database::getName('beedyGroupSub', 'bankId',$bankId, 11); ?>
+<?php $TotalQuestion = Database::getName('beedygroupsub', 'bankId',$bankId,7); ?>
+<?php $mark = Database::getName('beedygroupsub', 'bankId',$bankId,8); ?>
+<?php $show_result = Database::getName('beedygroupsub', 'bankId',$bankId, 11); ?>
 <?php 
 
 $questionGiven = array(); 

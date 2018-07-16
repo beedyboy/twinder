@@ -39,7 +39,7 @@ if(!empty($row)){
 
 $feedbck =  1;
 if($row['level'] == 3):
-$fetchInfo = $conn->db->prepare("SELECT * FROM beedyStudentProfile WHERE stdAddNum = ?");
+$fetchInfo = $conn->db->prepare("SELECT * FROM beedystudentprofile WHERE stdAddNum = ?");
 $fetchInfo->execute( array($row['stdAddNum']) );
 $info = $fetchInfo->fetch();
 $_SESSION['cbt']['page'] = "logged";	

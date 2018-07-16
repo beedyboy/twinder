@@ -12,7 +12,7 @@ include('../includes/system.php');
 <div class="row">
 <div class="col-md-10">
 <hr />
-<?php $systemWindow =System::loadTable('systemWindow');
+<?php $systemWindow =System::loadTable('systemwindow');
 while($det = $systemWindow->fetch(PDO::FETCH_ASSOC)){
 $code1 = $det['code1'];
 $code2 = $det['code2'];

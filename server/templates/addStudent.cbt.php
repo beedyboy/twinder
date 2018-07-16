@@ -47,7 +47,7 @@
 
 <h2 class="pageGuide">
 <i class="fa fa-info-circle"></i> School Details	</h2>
-<?php $loadStudentGroup = System::loadDistinct('groupId','beedyStdGroup'); ?>
+<?php $loadStudentGroup = System::loadDistinct('groupId','beedystdgroup'); ?>
 <div class="form-group">
 <label for="groupId">Group Name:</label>
 <?php 

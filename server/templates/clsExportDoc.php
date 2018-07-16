@@ -10,9 +10,9 @@ include('../includes/system.php');
 //header("Content-Type: application/csv");
 //header("Content-Disposition: attachment;Filename=cars-models.csv");
 
- $cn = Database::getName('genStudentBatches', 'genStdBatchId',$genStdBatchId,1)."\t".Database::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1);  
+ $cn = Database::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1)."\t".Database::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1);  
  $term = Database::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1); 
- $batch = Database::getName('genStudentBatches', 'genStdBatchId',$genStdBatchId,1);
+ $batch = Database::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1);
  
 $head = $cn."\t"."-".$batch."\t"."-".$term;
   $filename = $head.".doc"; //Change File type CSV/TXT etc
@@ -26,7 +26,7 @@ header("Content-type: application/vnd.ms-word");
   
 if(!empty($resultClass)): 
 
-$subId = System::getColById('beedyGroupSub', 'bankId', $bankId, 1); 
+$subId = System::getColById('beedygroupsub', 'bankId', $bankId, 1); 
  $classId = System::getColById('beedysubjectlist', 'subId', $subId, 2); 
    System::getColById('beedyclasslist', 'classId', $classId, 1)."\t"
  .System::getColById('beedysubjectlist', 'subId', $subId, 1);  ?> 
@@ -35,7 +35,7 @@ $subId = System::getColById('beedyGroupSub', 'bankId', $bankId, 1);
 <tr>
 <td>
 
-<?php echo  Database::getName('genStudentBatches', 'genStdBatchId',$genStdBatchId,1)."\t"; ?> 
+<?php echo  Database::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1)."\t"; ?> 
 <?php echo  Database::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1)."\t"; ?> 
  <b>(<?php echo System::getColById('beedyclasslist', 'classId', $classId, 1)."\t"
  .System::getColById('beedysubjectlist', 'subId', $subId, 1); 
@@ -60,9 +60,9 @@ $subId = System::getColById('beedyGroupSub', 'bankId', $bankId, 1);
 $i=0;
 foreach($resultClass as $LIST): 
 $bankId = $LIST['bankId']; 
-$subId = Database::getName('beedyGroupSub', 'bankId',$bankId,1);
- $Total_Question = Database::getName('beedyGroupSub', 'bankId',$bankId,7);
- $Mark = Database::getName('beedyGroupSub', 'bankId',$bankId,8);
+$subId = Database::getName('beedygroupsub', 'bankId',$bankId,1);
+ $Total_Question = Database::getName('beedygroupsub', 'bankId',$bankId,7);
+ $Mark = Database::getName('beedygroupsub', 'bankId',$bankId,8);
  $obt = $Total_Question * $Mark;
  $stdAddNum =  $LIST['stdAddNum'];
  $i++;
@@ -74,7 +74,7 @@ $subId = Database::getName('beedyGroupSub', 'bankId',$bankId,1);
  echo System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 1)."\t".
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 2)."\t". 
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 3);  ?> </td>
-<td><?php echo Database::getName('beedySubjectList', 'subId', $subId, 1); ?> </td>
+<td><?php echo Database::getName('beedysubjectlist', 'subId', $subId, 1); ?> </td>
 <td><?php echo $LIST['Score']; ?> </td>
 <td><?php echo $obt ?> </td>
 <td><?php echo $LIST['Percentage']; ?> </td>

@@ -16,7 +16,7 @@ if(!empty($loadTerm)):
 foreach($loadTerm as $TERM): 
  
 ?>	
-<option value="<?php echo $TERM['SchoolTermId']; ?>" ><?php echo System::getColById('beedySchoolTerm', 'SchoolTermId', $TERM['SchoolTermId'], 1);  ?></option>
+<option value="<?php echo $TERM['SchoolTermId']; ?>" ><?php echo System::getColById('beedyschoolterm', 'SchoolTermId', $TERM['SchoolTermId'], 1);  ?></option>
 <?php 
 endforeach;
 ?>

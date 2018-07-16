@@ -38,7 +38,7 @@ if(!empty($row)){
 
 $feedbck =  1;
 if($row['level'] == 1):
-$fetchInfo = $conn->db->prepare("SELECT * FROM systemAdmin WHERE adminId = ?");
+$fetchInfo = $conn->db->prepare("SELECT * FROM systemadmin WHERE adminId = ?");
 $fetchInfo->execute( array($row['adminId']) );
 $info = $fetchInfo->fetch();
 $_SESSION['cbt']['page'] = "logged";	

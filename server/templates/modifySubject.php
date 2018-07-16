@@ -10,9 +10,9 @@ $loadStudentGroup = $GetSchool->loadStudentGroup();
 <i class="icon-plus-sign icon-large"></i>Add Subject</a>		</p>
 <?php 
  
-$subjectName =System::getColById('beedysubjectList', 'subId', $subId, 1);
-$classId =System::getColById('beedysubjectList', 'subId', $subId, 2);  
-$groupId =System::getColById('beedyClassList', 'classId', $classId, 2);  
+$subjectName =System::getColById('beedysubjectlist', 'subId', $subId, 1);
+$classId =System::getColById('beedysubjectlist', 'subId', $subId, 2);  
+$groupId =System::getColById('beedyclasslist', 'classId', $classId, 2);  
 
 ?>
 <div  class="row">
@@ -23,7 +23,7 @@ $groupId =System::getColById('beedyClassList', 'classId', $classId, 2);
 <input type="hidden" name="subId" id="subId" value="<?php echo $subId ?>" />
 
 
-<?php $loadStudentGroup = System::loadDistinct('groupId','beedyStdGroup'); ?>
+<?php $loadStudentGroup = System::loadDistinct('groupId','beedystdgroup'); ?>
 <div class="form-group">
 <label for="groupId">Group Name:</label>
 <?php 
@@ -48,7 +48,7 @@ endif;
 <label for="classList">Class Name:</label>
 <div id="classList">
 <select class="form-control" id="classId" name="classId" required> 
-<option value="<?php echo $classId; ?>" selected><?php echo System::getColById('beedyClassList', 'classId', $classId, 1);   ?></option>
+<option value="<?php echo $classId; ?>" selected><?php echo System::getColById('beedyclasslist', 'classId', $classId, 1);   ?></option>
 </select>
 </div>
 </div>

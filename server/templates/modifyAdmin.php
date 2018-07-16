@@ -6,12 +6,12 @@ $adminId =$_POST['adminId'];
 <a class="btn btn-info"  data-placement="right" title="Click to Add New" href="?pid=6&action=admin/">
 <i class="icon-plus-sign icon-large"></i>Add Admin</a>		</p>
 <?php 
-$firstName =System::getColById('systemAdmin', 'adminId', $adminId, 1);
-$lastName =System::getColById('systemAdmin', 'adminId', $adminId, 2);
-$email =System::getColById('systemAdmin', 'adminId', $adminId, 3);
-$username =System::getColById('systemAdmin', 'adminId', $adminId, 4);
-$password =System::getColById('systemAdmin', 'adminId', $adminId, 5); 
-$permitId =System::getColById('systemAdmin', 'adminId', $adminId, 7); 
+$firstName =System::getColById('systemadmin', 'adminId', $adminId, 1);
+$lastName =System::getColById('systemadmin', 'adminId', $adminId, 2);
+$email =System::getColById('systemadmin', 'adminId', $adminId, 3);
+$username =System::getColById('systemadmin', 'adminId', $adminId, 4);
+$password =System::getColById('systemadmin', 'adminId', $adminId, 5); 
+$permitId =System::getColById('systemadmin', 'adminId', $adminId, 7); 
 ?>
 <div  class="row">
 <div class="col-md-12">

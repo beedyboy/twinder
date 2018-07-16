@@ -81,7 +81,7 @@ endif;
 	<div class="black-img-white row"> 
 						 <div class="col-offset-lg-4 col-lg-8 pull-right">
  
-<?php $loadTblCond1 = System::loadTblCond1('beedyInterfaces', 'Active', 1); ?>
+<?php $loadTblCond1 = System::loadTblCond1('beedyinterfaces', 'Active', 1); ?>
 <select class="form-control" id="getface" name="getface">
 							<?php if(!empty($loadTblCond1)): ?> 
 

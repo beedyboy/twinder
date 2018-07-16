@@ -21,8 +21,8 @@ $loadSubjectList = $GetSchool->loadSubjectList();
 <?php 
 $i = 0;
 foreach($loadSubjectList as $subjectList): 
-$className =System::getColById('beedyClassList', 'classId', $subjectList['classId'], 1); 
-$groupId =System::getColById('beedyClassList', 'classId', $subjectList['classId'], 2); 
+$className =System::getColById('beedyclasslist', 'classId', $subjectList['classId'], 1); 
+$groupId =System::getColById('beedyclasslist', 'classId', $subjectList['classId'], 2); 
 $i++;
 ?>
 <tr class="del<?php echo $subjectList['subId']; ?>"> 

@@ -6,27 +6,27 @@ parent::__construct();
 }
 public static function loadSchoolData(){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedySchooldata");
+$select = $conn->db->prepare("SELECT * FROM beedyschooldata");
 $select->execute();
 return $select->fetchAll();
 }
 public static function loadAdmin(){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM systemAdmin");
+$select = $conn->db->prepare("SELECT * FROM systemadmin");
 $select->execute();
 return $select->fetchAll();
 }
 
 public static function loadStudentBatches(){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM genStudentBatches");
+$select = $conn->db->prepare("SELECT * FROM genstudentbatches");
 $select->execute();
 return $select->fetchAll();
 }
 
 public static function loadSchool(){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedySystem");
+$select = $conn->db->prepare("SELECT * FROM beedysystem");
 $select->execute();
 return $select->fetchAll();
 }
@@ -98,28 +98,28 @@ public static function NewGuidR($s) {
  
 public static function loadSchoolTerm(){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedySchoolTerm");
+$select = $conn->db->prepare("SELECT * FROM beedyschoolterm");
 $select->execute();
 return $select->fetchAll();
 }
 
 public static function loadStudentGroup(){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedyStdGroup");
+$select = $conn->db->prepare("SELECT * FROM beedystdgroup");
 $select->execute();
 return $select->fetchAll();
 }
 
 public static function loadClassList(){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedyClassList");
+$select = $conn->db->prepare("SELECT * FROM beedyclasslist");
 $select->execute();
 return $select->fetchAll();
 }
 
 public static function loadSubjectList(){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedySubjectList");
+$select = $conn->db->prepare("SELECT * FROM beedysubjectlist");
 $select->execute();
 return $select->fetchAll();
 }
@@ -134,23 +134,23 @@ return $select->fetchAll();
 
 public static function loadBankGroup(){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedyGroup");
+$select = $conn->db->prepare("SELECT * FROM beedygroup");
 $select->execute();
 return $select->fetchAll();
 } 
 
 public static function getResultLog(){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedyGroup");
+$select = $conn->db->prepare("SELECT * FROM beedygroup");
 $select->execute();
 return $select->fetchAll();
 } 
 
 public static function addStudentBatches(){
 $conn = Database::getInstance();
-if($existCheck = System::existOne('genStudentBatches', 'genStdBatchesYear',  $_POST['genStdBatchesYear'])==0)
+if($existCheck = System::existOne('genstudentbatches', 'genStdBatchesYear',  $_POST['genStdBatchesYear'])==0)
 {
-$stmt = $conn->db->prepare("INSERT INTO genStudentBatches (genStdBatchesYear) VALUES (:genStdBatchesYear)");
+$stmt = $conn->db->prepare("INSERT INTO genstudentbatches (genStdBatchesYear) VALUES (:genStdBatchesYear)");
 $stmt->bindParam(':genStdBatchesYear', $_POST['genStdBatchesYear'], PDO::PARAM_STR); 
 if ($stmt->execute()): 
 return 1;
@@ -164,9 +164,9 @@ return 2;
 
 public static function addSchoolTerm(){
 $conn = Database::getInstance();
-if($existCheck = self::existOne('beedySchoolTerm', 'SchoolTermName', $_POST['genSchTerm'])==0)
+if($existCheck = self::existOne('beedyschoolterm', 'SchoolTermName', $_POST['genSchTerm'])==0)
 {
-$stmt = $conn->db->prepare("INSERT INTO beedySchoolTerm (SchoolTermName) VALUES (:SchoolTermName)");
+$stmt = $conn->db->prepare("INSERT INTO beedyschoolterm (SchoolTermName) VALUES (:SchoolTermName)");
 $stmt->bindParam(':SchoolTermName', $_POST['genSchTerm'], PDO::PARAM_STR); 
 if ($stmt->execute()): 
 return 1;
@@ -180,9 +180,9 @@ return 2;
  
 public static function addStdGroup(){
 $conn = Database::getInstance();
-if($existCheck = self::existOne('beedyStdGroup', 'groupName', $_POST['stdGroup'])==0)
+if($existCheck = self::existOne('beedystdgroup', 'groupName', $_POST['stdGroup'])==0)
 {
-$stmt = $conn->db->prepare("INSERT INTO beedyStdGroup (groupName) VALUES (:groupName)");
+$stmt = $conn->db->prepare("INSERT INTO beedystdgroup (groupName) VALUES (:groupName)");
 $stmt->bindParam(':groupName', $_POST['stdGroup'], PDO::PARAM_STR); 
 if ($stmt->execute()): 
 return 1;
@@ -196,9 +196,9 @@ return 2;
  
 public static function addToClass(){
 $conn = Database::getInstance();
-if($existCheck = self::existTwo('beedyClassList', 'groupId', 'className', $_POST['groupId'], $_POST['className'])==0)
+if($existCheck = self::existTwo('beedyclasslist', 'groupId', 'className', $_POST['groupId'], $_POST['className'])==0)
 {
-$stmt = $conn->db->prepare("INSERT INTO beedyClassList (groupId, className) VALUES (:groupId, :className)");
+$stmt = $conn->db->prepare("INSERT INTO beedyclasslist (groupId, className) VALUES (:groupId, :className)");
 $stmt->bindParam(':groupId', $_POST['groupId'], PDO::PARAM_STR); 
 $stmt->bindParam(':className', $_POST['className'], PDO::PARAM_STR); 
 if ($stmt->execute()): 
@@ -213,9 +213,9 @@ return 2;
  
 public static function addClassSubject(){
 $conn = Database::getInstance();
-if($existCheck = self::existTwo('beedySubjectList', 'classId', 'subjectName', $_POST['classId'], $_POST['subjectName'])==0)
+if($existCheck = self::existTwo('beedysubjectlist', 'classId', 'subjectName', $_POST['classId'], $_POST['subjectName'])==0)
 {
-$stmt = $conn->db->prepare("INSERT INTO beedySubjectList (classId, subjectName) VALUES (:classId, :subjectName)");
+$stmt = $conn->db->prepare("INSERT INTO beedysubjectlist (classId, subjectName) VALUES (:classId, :subjectName)");
 $stmt->bindParam(':classId', $_POST['classId'], PDO::PARAM_STR); 
 $stmt->bindParam(':subjectName', $_POST['subjectName'], PDO::PARAM_STR); 
 if ($stmt->execute()): 
@@ -245,9 +245,9 @@ $image = self::uploadImage($FILES,$barcode,'admin/');
 else{
 $image = $File_Name;
 } 
-if($existCheck = self::existTwo('systemAdmin', 'username', 'email', $username, $email)==0)
+if($existCheck = self::existTwo('systemadmin', 'username', 'email', $username, $email)==0)
 { 
-$stmt = $conn->db->prepare("INSERT INTO systemAdmin (firstName, lastName, area_privilege, email, username, password, image ) VALUES (?,?,?,?,?,?,?)");
+$stmt = $conn->db->prepare("INSERT INTO systemadmin (firstName, lastName, area_privilege, email, username, password, image ) VALUES (?,?,?,?,?,?,?)");
 if($stmt->execute( array($firstName, $lastName, $permitId, $email,  $username, $password, $image) )):
 $sid = $conn->db->lastInsertId();
 self::addLogin('adminId', $sid, $email, $username, $password, $firstName, $lastName, 1); 
@@ -422,9 +422,9 @@ $permitId = $_POST['permitId'];
 $username = $_POST['username']; 
 $password = $_POST['password']; 
 $adminId = $_POST['adminId']; 
-if($existCheck = self::existTwo('systemAdmin', 'username','password', $username, $password)==0)
+if($existCheck = self::existTwo('systemadmin', 'username','password', $username, $password)==0)
 { 
-$updateClass = $conn->db->prepare("UPDATE systemAdmin SET  firstName=:firstName, lastName=:lastName, email=:email, area_privilege=:permitId, username=:username,password=:password WHERE adminId=:adminId ");
+$updateClass = $conn->db->prepare("UPDATE systemadmin SET  firstName=:firstName, lastName=:lastName, email=:email, area_privilege=:permitId, username=:username,password=:password WHERE adminId=:adminId ");
 $updateClass->bindParam(':firstName', $firstName, PDO::PARAM_STR);
 $updateClass->bindParam(':lastName', $lastName, PDO::PARAM_STR);
 $updateClass->bindParam(':email', $email, PDO::PARAM_STR);
@@ -473,7 +473,7 @@ else{ return $location;}
 
 public static function updateBatchesYear(){
 $conn = Database::getInstance();
-$updateClass = $conn->db->prepare("UPDATE genStudentBatches SET genStdBatchesYear=:genStdBatchesYear WHERE genStdBatchId=:genStdBatchId ");
+$updateClass = $conn->db->prepare("UPDATE genstudentbatches SET genStdBatchesYear=:genStdBatchesYear WHERE genStdBatchId=:genStdBatchId ");
 $updateClass->bindParam(':genStdBatchesYear', $_POST['genStdBatchesYear'], PDO::PARAM_STR);
 $updateClass->bindParam(':genStdBatchId', $_POST['genStdBatchId'], PDO::PARAM_INT);
 if($updateClass->execute()){return 1;} else {return 0;} 
@@ -481,7 +481,7 @@ if($updateClass->execute()){return 1;} else {return 0;}
 
 public static function updateStdGroup(){
 $conn = Database::getInstance();
-$updateClass = $conn->db->prepare("UPDATE beedyStdGroup SET groupName=:groupName WHERE groupId=:groupId ");
+$updateClass = $conn->db->prepare("UPDATE beedystdgroup SET groupName=:groupName WHERE groupId=:groupId ");
 $updateClass->bindParam(':groupName', $_POST['groupName'], PDO::PARAM_STR);
 $updateClass->bindParam(':groupId', $_POST['groupId'], PDO::PARAM_INT);
 if($updateClass->execute()){return 1;} else {return 0;} 
@@ -489,7 +489,7 @@ if($updateClass->execute()){return 1;} else {return 0;}
 
 public static function updateSemester(){
 $conn = Database::getInstance();
-$updateClass = $conn->db->prepare("UPDATE beedySchoolTerm SET SchoolTermName=:SchoolTermName WHERE SchoolTermId=:SchoolTermId ");
+$updateClass = $conn->db->prepare("UPDATE beedyschoolterm SET SchoolTermName=:SchoolTermName WHERE SchoolTermId=:SchoolTermId ");
 $updateClass->bindParam(':SchoolTermName', $_POST['genSchTerm'], PDO::PARAM_STR);
 $updateClass->bindParam(':SchoolTermId', $_POST['SchoolTermId'], PDO::PARAM_INT); 
 if($updateClass->execute()){return 1;} else {return 0;} 
@@ -497,7 +497,7 @@ if($updateClass->execute()){return 1;} else {return 0;}
 
 public static function updateClass(){
 $conn = Database::getInstance();
-$updateClass = $conn->db->prepare("UPDATE beedyClassList SET ClassName=:ClassName, groupId=:groupId WHERE classId=:classId ");
+$updateClass = $conn->db->prepare("UPDATE beedyclasslist SET ClassName=:ClassName, groupId=:groupId WHERE classId=:classId ");
 $updateClass->bindParam(':ClassName', $_POST['ClassName'], PDO::PARAM_STR);
 $updateClass->bindParam(':groupId', $_POST['groupId'], PDO::PARAM_INT); 
 $updateClass->bindParam(':classId', $_POST['classId'], PDO::PARAM_INT); 
@@ -505,7 +505,7 @@ if($updateClass->execute()){return 1;} else {return 0;}
 } 
 public static function updateClassSubject(){
 $conn = Database::getInstance();
-$updateClass = $conn->db->prepare("UPDATE beedySubjectList SET subjectName=:subjectName, classId=:classId WHERE subId=:subId ");
+$updateClass = $conn->db->prepare("UPDATE beedysubjectlist SET subjectName=:subjectName, classId=:classId WHERE subId=:subId ");
 $updateClass->bindParam(':subjectName', $_POST['subjectName'], PDO::PARAM_STR);
 $updateClass->bindParam(':classId', $_POST['classId'], PDO::PARAM_INT); 
 $updateClass->bindParam(':subId', $_POST['subId'], PDO::PARAM_INT); 
@@ -610,7 +610,7 @@ if($updateClass->execute()){return 1;} else {return 0;}
 public static function disableStudent($stdAddNum){
 $conn = Database::getInstance();
 $Active	= 0;
-$deleteInfo = $conn->db->prepare("UPDATE beedyStudentProfile SET Active=:Active WHERE stdAddNum = :stdAddNum");
+$deleteInfo = $conn->db->prepare("UPDATE beedystudentprofile SET Active=:Active WHERE stdAddNum = :stdAddNum");
 $deleteInfo->bindValue(":stdAddNum",$stdAddNum);
 $deleteInfo->bindValue(":Active",$Active);
 $deleteInfo->execute();
@@ -619,7 +619,7 @@ return "Student disabled successfully";
 public static function enableStudent($stdAddNum){
 $conn = Database::getInstance();
 $Active	= 1;
-$deleteInfo = $conn->db->prepare("UPDATE beedyStudentProfile SET Active=:Active WHERE stdAddNum = :stdAddNum");
+$deleteInfo = $conn->db->prepare("UPDATE beedystudentprofile SET Active=:Active WHERE stdAddNum = :stdAddNum");
 $deleteInfo->bindValue(":stdAddNum",$stdAddNum);
 $deleteInfo->bindValue(":Active",$Active);
 $deleteInfo->execute();
@@ -649,7 +649,7 @@ if($updateSchoolData->execute()){return 1;} else {return 0;}
 	 	
 public static function deleteAdmin($adminId){
 $conn = Database::getInstance(); 
-$deleteInfo = $conn->db->prepare("DELETE FROM systemAdmin WHERE adminId = :adminId");
+$deleteInfo = $conn->db->prepare("DELETE FROM systemadmin WHERE adminId = :adminId");
 $deleteInfo->bindValue(":adminId",$adminId);
 $deleteInfo->execute();
 return "Admin deleted successfully";
@@ -657,28 +657,28 @@ return "Admin deleted successfully";
 
 public static function deleteSession($genStdBatchId){
 $conn = Database::getInstance(); 
-$deleteInfo = $conn->db->prepare("DELETE FROM genStudentBatches WHERE genStdBatchId = :genStdBatchId");
+$deleteInfo = $conn->db->prepare("DELETE FROM genstudentbatches WHERE genStdBatchId = :genStdBatchId");
 $deleteInfo->bindValue(":genStdBatchId",$genStdBatchId);
 $deleteInfo->execute();
 return "Batch/Session deleted successfully";
 }		 
 public static function deleteSemester($SchoolTermId){
 $conn = Database::getInstance(); 
-$deleteInfo = $conn->db->prepare("DELETE FROM beedySchoolTerm WHERE SchoolTermId = :SchoolTermId");
+$deleteInfo = $conn->db->prepare("DELETE FROM beedyschoolterm WHERE SchoolTermId = :SchoolTermId");
 $deleteInfo->bindValue(":SchoolTermId",$SchoolTermId);
 $deleteInfo->execute();
 return "Term/Semester deleted successfully";
 }		 
 public static function deleteStudent($stdAddNum){
 $conn = Database::getInstance();
-$deleteInfo = $conn->db->prepare("DELETE FROM beedyStudentProfile WHERE stdAddNum = :stdAddNum");
+$deleteInfo = $conn->db->prepare("DELETE FROM beedystudentprofile WHERE stdAddNum = :stdAddNum");
 $deleteInfo->bindValue(":stdAddNum",$stdAddNum);
 $deleteInfo->execute();
 return "Student deleted successfully";
 }
 public static function deleteStdGroup($groupId){
 $conn = Database::getInstance();
-$deleteInfo = $conn->db->prepare("DELETE FROM beedyStdGroup WHERE groupId = :groupId");
+$deleteInfo = $conn->db->prepare("DELETE FROM beedystdgroup WHERE groupId = :groupId");
 $deleteInfo->bindValue(":groupId",$groupId);
 $deleteInfo->execute();
 return "Group deleted successfully";
@@ -686,7 +686,7 @@ return "Group deleted successfully";
 
 public static function deleteFrmClass($classId){
 $conn = Database::getInstance();
-$deleteInfo = $conn->db->prepare("DELETE FROM beedyClassList WHERE classId = :classId");
+$deleteInfo = $conn->db->prepare("DELETE FROM beedyclasslist WHERE classId = :classId");
 $deleteInfo->bindValue(":classId",$classId);
 $deleteInfo->execute();
 return "Class deleted successfully";
@@ -694,7 +694,7 @@ return "Class deleted successfully";
 
 public static function deleteSubjectList($subId){
 $conn = Database::getInstance();
-$deleteInfo = $conn->db->prepare("DELETE FROM beedySubjectList WHERE subId = :subId");
+$deleteInfo = $conn->db->prepare("DELETE FROM beedysubjectlist WHERE subId = :subId");
 $deleteInfo->bindValue(":subId",$subId);
 $deleteInfo->execute();
 return "Subject deleted successfully";
@@ -710,7 +710,7 @@ return "Exam Type deleted successfully";
 
 
 
-public static function systemWindow(){ 
+public static function systemwindow(){ 
 $conn = Database::getInstance(); 
  $A=0; $B=0; $C=0; $D=0;
    $mode = $_POST['mode'];
@@ -744,7 +744,7 @@ $b= self::beedy($Guid); //decode
   $system= self::NewGuidR( self::beedy($foruser)); //to be confirmed
 
 
-$updateClass = $conn->db->prepare("UPDATE systemWindow SET code1=:code1, code2=:code2, codeKey=:codeKey, active=:active WHERE id=:id ");
+$updateClass = $conn->db->prepare("UPDATE systemwindow SET code1=:code1, code2=:code2, codeKey=:codeKey, active=:active WHERE id=:id ");
 $updateClass->bindParam(':code1', $foruser, PDO::PARAM_STR);  
 $updateClass->bindParam(':code2', $system, PDO::PARAM_STR);  
 $updateClass->bindParam(':codeKey', $Guid, PDO::PARAM_STR);  
@@ -757,9 +757,9 @@ if($updateClass->execute()){return 1;} else {return 0;}
 public static function activateKey(){
 $conn = Database::getInstance();
   
-$systemWindow =Database::loadTbl('systemWindow');
-foreach($systemWindow as $det):
- //while($det = $systemWindow->fetch(PDO::FETCH_ASSOC)){
+$systemwindow =Database::loadTbl('systemwindow');
+foreach($systemwindow as $det):
+ //while($det = $systemwindow->fetch(PDO::FETCH_ASSOC)){
 $code1 = $det['code1'];
 $code2 = $det['code2'];
 $codeKey = $det['codekey'];
@@ -772,7 +772,7 @@ $coder = self::charFormat($code2);
  
  if($coder === $license): 
  $bd ="beedy"; 
-$updateClass = $conn->db->prepare("UPDATE systemWindow SET code1=:code1, code2=:code2, codeKey=:codeKey, active=:active WHERE id=:id ");
+$updateClass = $conn->db->prepare("UPDATE systemwindow SET code1=:code1, code2=:code2, codeKey=:codeKey, active=:active WHERE id=:id ");
 $updateClass->bindParam(':code1', $bd, PDO::PARAM_STR);  
 $updateClass->bindParam(':code2', $bd, PDO::PARAM_STR);  
 $updateClass->bindParam(':codeKey', $bd, PDO::PARAM_STR);  
@@ -793,7 +793,7 @@ $d= substr($Guid, 15,1);
 $dateTo= date('Y-m-d', strtotime($dateFrom. '+'. $days.' days'));
 	if($days >= 5000): $active="Life"; $dateTo="2099-12-12";  endif;		
 				
-$updateKey = $conn->db->prepare("UPDATE beedySystem SET code1=:code1, code2=:code2, codeKey=:codeKey, dateFrom=:dateFrom,
+$updateKey = $conn->db->prepare("UPDATE beedysystem SET code1=:code1, code2=:code2, codeKey=:codeKey, dateFrom=:dateFrom,
  dateTo=:dateTo, active=:active WHERE id=:id ");
 $updateKey->bindParam(':code1', $code1, PDO::PARAM_STR);  
 $updateKey->bindParam(':code2', $code2, PDO::PARAM_STR);  

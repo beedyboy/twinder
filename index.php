@@ -41,7 +41,7 @@
 if($url===FALSE){
  header('Location: index.php');
  }
-$url="install/index.php";
+$url="installer/index.php";
 
 if(isset($_GET['ins'])):
 
@@ -49,10 +49,14 @@ $install = optional_param('ins','',PARAM_ALPHAEXT);
 
 if($install == 'comp')
 {
-	if (is_dir('install'))
+	if (is_dir('installer'))
 	{
-		$dir = 'install/'; // IMPORTANT: with '/' at the end
+		    
+
+           $dir = 'installer/index.php'; // IMPORTANT: with '/' at the end
            $remove_directory = delete_directory($dir);
+
+        
 	}
 
 }
@@ -62,7 +66,7 @@ endif;
 
 if(file_exists($url))
 {
-header('location: install/index.php');
+header('location: installer/index.php');
 }
 	/// List of processes
 	$arr_pages = array (

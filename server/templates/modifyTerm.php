@@ -6,7 +6,7 @@ $SchoolTermId =$_POST['SchoolTermId'];
 <a class="btn btn-info"  data-placement="right" title="Click to Add New" onclick="addSemester()" >
 <i class="icon-plus-sign icon-large"></i>Add Term/Semester</a>		</p>
 <?php 
-$genSchTerm =System::getColById('beedySchoolTerm', 'SchoolTermId', $SchoolTermId, 1);
+$genSchTerm =System::getColById('beedyschoolterm', 'SchoolTermId', $SchoolTermId, 1);
 ?>
 <div  class="row">
 <div class="col-md-12">

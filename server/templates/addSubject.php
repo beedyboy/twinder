@@ -5,7 +5,7 @@ include('../includes/system.php');
 <form id="addClassSubject" class="submitForm"  role="form" action="#">
 <input type="hidden" name="action" value="addClassSubject" /> 
  
-<?php $loadStudentGroup = System::loadDistinct('groupId','beedyStdGroup'); ?>
+<?php $loadStudentGroup = System::loadDistinct('groupId','beedystdgroup'); ?>
 <div class="form-group">
 <label for="groupId">Group Name:</label>
 <?php 

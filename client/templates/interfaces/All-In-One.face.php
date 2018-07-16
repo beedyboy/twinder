@@ -19,17 +19,17 @@ $genStdBatchId=$Profile['genStdBatchId'];
 $active=$Profile['Active'];  
 }
  
-$className =System::getColById('beedyClassList', 'classId', $classId, 1); 
+$className =System::getColById('beedyclasslist', 'classId', $classId, 1); 
  ?> 
  
-<?php $subId = Database::getName('beedyGroupSub', 'bankId',$bankId,1); ?>
- <?php $exambankId = Database::getName('beedyGroupSub', 'bankId',$bankId, 3); ?>
-<?php $Exam_Instruction = Database::getName('beedyGroupSub', 'bankId',$bankId,5); ?>
-<?php $duration = Database::getName('beedyGroupSub', 'bankId',$bankId,6); ?>
-<?php $random = Database::getName('beedyGroupSub', 'bankId',$bankId,10); ?>
-<?php $examTypeId = Database::getName('beedyGroupSub', 'bankId',$bankId, 2); ?>
+<?php $subId = Database::getName('beedygroupsub', 'bankId',$bankId,1); ?>
+ <?php $exambankId = Database::getName('beedygroupsub', 'bankId',$bankId, 3); ?>
+<?php $Exam_Instruction = Database::getName('beedygroupsub', 'bankId',$bankId,5); ?>
+<?php $duration = Database::getName('beedygroupsub', 'bankId',$bankId,6); ?>
+<?php $random = Database::getName('beedygroupsub', 'bankId',$bankId,10); ?>
+<?php $examTypeId = Database::getName('beedygroupsub', 'bankId',$bankId, 2); ?>
 <?php $examType = Database::getName('beedyexamtype', 'examTypeId', $examTypeId,1); ?>
- <?php $TotalQuestion = Database::getName('beedyGroupSub', 'bankId',$bankId,7); ?>
+ <?php $TotalQuestion = Database::getName('beedygroupsub', 'bankId',$bankId,7); ?>
  
  <?php $loadIntQuestion =NULL;
  if($random =="Yes"): 
@@ -171,7 +171,7 @@ input:checked + .slider:before {
  </div>
  
  <div class="col-lg-6 examPanel allborder" id="examPanel">
- <div class="subName">  <?php echo Database::getName('beedySubjectList', 'subId', $subId, 1); ?>  </div>
+ <div class="subName">  <?php echo Database::getName('beedysubjectlist', 'subId', $subId, 1); ?>  </div>
  
  <!--exam-->
  <table class="table table-striped table-bordered">

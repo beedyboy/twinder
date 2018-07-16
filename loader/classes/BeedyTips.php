@@ -7,7 +7,7 @@ parent::__construct();
 }
 public static function loadBeedyTips(){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM BeedyAppTips ORDER BY Rand() Limit 1");
+$select = $conn->db->prepare("SELECT * FROM beedyapptips ORDER BY Rand() Limit 1");
 $select->execute();
 return $select;
 }

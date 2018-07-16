@@ -8,7 +8,7 @@ parent::__construct();
 
 public static function loadBankGrp($exambankId){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedyGroupSub WHERE exambankId=:exambankId");
+$select = $conn->db->prepare("SELECT * FROM beedygroupsub WHERE exambankId=:exambankId");
 $select->execute(array(':exambankId'=>$exambankId));
 return $select->fetchAll();
 }
@@ -18,7 +18,7 @@ return $select->fetchAll();
   
 public static function loadStudentCourses($classId){ 
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedySubjectList WHERE classId=:nn ");
+$select = $conn->db->prepare("SELECT * FROM beedysubjectlist WHERE classId=:nn ");
 $select->execute(array(':nn'=>$classId));
 return $select->fetchAll();
 }
@@ -27,7 +27,7 @@ public static function loadExamList($subId){
 	$today = date("Y-m-d");
 	$Active='Yes';
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedyGroupSub WHERE subId=:sub AND Exam_DATE=:nn And Active=:Active");
+$select = $conn->db->prepare("SELECT * FROM beedygroupsub WHERE subId=:sub AND Exam_DATE=:nn And Active=:Active");
 $select->execute(array(':sub'=>$subId,':nn'=>$today, ':Active'=>$Active));
 return $select->fetchAll();
 }
@@ -36,7 +36,7 @@ public static function loadExamData($subId, $col){
 	$today = date("Y-m-d");
 	$Active='Yes';
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedyGroupSub WHERE subId=:sub AND Exam_DATE=:nn And Active=:Active");
+$select = $conn->db->prepare("SELECT * FROM beedygroupsub WHERE subId=:sub AND Exam_DATE=:nn And Active=:Active");
 $select->execute(array(':sub'=>$subId,':nn'=>$today, ':Active'=>$Active));
 
 return $select->fetchColumn($col); 

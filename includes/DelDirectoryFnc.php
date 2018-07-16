@@ -1,6 +1,17 @@
 <?php 
 
+function removeDirectory($path)
+{
+    $files = glob($path.'/*');
+    foreach($files as $file)
+    {
+         is_dir($file)?
+      removeDirectory($file): unlink($file);
 
+    }
+    rmdir($path);
+    return;
+}
 
 function delete_directory($dir)
 {

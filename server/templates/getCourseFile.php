@@ -16,9 +16,9 @@ if(!empty($loadBankGrp)):
 								foreach($loadBankGrp as $Bank): 
 								$i++;
 							
-$courseName= System::getName('beedySubjectList', 'subId', $Bank['subId'], 1);   
-    $classId= System::getName('beedySubjectList', 'subId', $Bank['subId'], 2);   
-  $className= System::getName('beedyClassList', 'classId', $classId, 1);  
+$courseName= System::getName('beedysubjectlist', 'subId', $Bank['subId'], 1);   
+    $classId= System::getName('beedysubjectlist', 'subId', $Bank['subId'], 2);   
+  $className= System::getName('beedyclasslist', 'classId', $classId, 1);  
 ?>	
 <option value="<?php echo $Bank['subId']; ?>" ><?php echo $courseName."\t"."-"."\t".$className; ?></option>
 <?php 

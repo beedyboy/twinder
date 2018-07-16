@@ -86,8 +86,8 @@ $genStdBatchId=$Profile['genStdBatchId'];
 $active=$Profile['Active'];  
 }
  
-$className =System::getColById('beedyClassList', 'classId', $classId, 1); 
-$groupId =System::getColById('beedyClassList', 'classId', $classId, 2); 
+$className =System::getColById('beedyclasslist', 'classId', $classId, 1); 
+$groupId =System::getColById('beedyclasslist', 'classId', $classId, 2); 
 
  $loadStudentBatches = $GetSchool->loadStudentBatches();  
 ?>
@@ -222,7 +222,7 @@ $groupId =System::getColById('beedyClassList', 'classId', $classId, 2);
 <div class="row">  
 <div class="col-xs-6 col-md-6 col-lg-6">
   	
-<?php $loadStudentGroup = System::loadDistinct('groupId','beedyStdGroup'); ?>
+<?php $loadStudentGroup = System::loadDistinct('groupId','beedystdgroup'); ?>
 <div class="form-group">
 <label for="groupId">Group Name:</label>
 <?php 
@@ -247,7 +247,7 @@ endif;
 <label for="classList">Class Name:</label>
 <div id="classList">
 <select class="form-control" id="classId" name="classId" required> 
-<option value="<?php echo $classId; ?>" selected><?php echo System::getColById('beedyClassList', 'classId', $classId, 1);   ?></option>
+<option value="<?php echo $classId; ?>" selected><?php echo System::getColById('beedyclasslist', 'classId', $classId, 1);   ?></option>
 </select>
 </div>
 </div>

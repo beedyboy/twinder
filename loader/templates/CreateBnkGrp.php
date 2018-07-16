@@ -5,7 +5,7 @@
 		<input type="hidden" name="action" value="addNewBankCourse" />
 					<input type="hidden" name="exambankId" value="<?php echo $_GET['exambankId']; ?>" />
 		 
-					 <?php $loadStudentClass = System::loadDistinct('classId','beedySubjectList'); ?>
+					 <?php $loadStudentClass = System::loadDistinct('classId','beedysubjectlist'); ?>
 					 <div class="form-group">
 						<label for="classId" class="control-label col-lg-3">Class Name:</label>
 						 <div class="col-lg-5">
@@ -17,7 +17,7 @@ if(!empty($loadStudentClass)):
 <?php
 foreach($loadStudentClass as $Class):
 ?>	
-<option value="<?php echo $Class['classId']; ?>" ><?php echo System::getColById('beedyClassList', 'classId', $Class['classId'], 1); ?></option>
+<option value="<?php echo $Class['classId']; ?>" ><?php echo System::getColById('beedyclasslist', 'classId', $Class['classId'], 1); ?></option>
 <?php 
 endforeach;
 ?>

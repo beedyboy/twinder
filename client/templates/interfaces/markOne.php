@@ -5,16 +5,16 @@ include('../../includes/system2.php');
  $bankId=$_POST['bankId'];
   ?>
   
-<?php $subId = Database::getName('beedyGroupSub', 'bankId',$bankId,1); ?>
- <?php $exambankId = Database::getName('beedyGroupSub', 'bankId',$bankId, 3); ?>
-<?php $Exam_Instruction = Database::getName('beedyGroupSub', 'bankId',$bankId,5); ?>
-<?php $duration = Database::getName('beedyGroupSub', 'bankId',$bankId,6); ?>
-<?php $random = Database::getName('beedyGroupSub', 'bankId',$bankId,10); ?>
-<?php $examTypeId = Database::getName('beedyGroupSub', 'bankId',$bankId, 2); ?>
+<?php $subId = Database::getName('beedygroupsub', 'bankId',$bankId,1); ?>
+ <?php $exambankId = Database::getName('beedygroupsub', 'bankId',$bankId, 3); ?>
+<?php $Exam_Instruction = Database::getName('beedygroupsub', 'bankId',$bankId,5); ?>
+<?php $duration = Database::getName('beedygroupsub', 'bankId',$bankId,6); ?>
+<?php $random = Database::getName('beedygroupsub', 'bankId',$bankId,10); ?>
+<?php $examTypeId = Database::getName('beedygroupsub', 'bankId',$bankId, 2); ?>
 <?php $examType = Database::getName('beedyexamtype', 'examTypeId', $examTypeId,1); ?>
- <?php $TotalQuestion = Database::getName('beedyGroupSub', 'bankId',$bankId,7); ?>
- <?php $mark = Database::getName('beedyGroupSub', 'bankId',$bankId,8); ?>
- <?php $show_result = Database::getName('beedyGroupSub', 'bankId',$bankId, 11); ?>
+ <?php $TotalQuestion = Database::getName('beedygroupsub', 'bankId',$bankId,7); ?>
+ <?php $mark = Database::getName('beedygroupsub', 'bankId',$bankId,8); ?>
+ <?php $show_result = Database::getName('beedygroupsub', 'bankId',$bankId, 11); ?>
 
  <?php   
 $CurrentSession =  Database::getField('beedyschooldata', 7);

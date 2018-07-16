@@ -6,7 +6,7 @@ $genStdBatchId =$_POST['genStdBatchId'];
 <a class="btn btn-info"  data-placement="right" title="Click to Add New" onclick="addSession()" >
 <i class="icon-plus-sign icon-large"></i>Add Session</a>		</p>
 <?php 
-$genStdBatchesYear =System::getColById('genStudentBatches', 'genStdBatchId', $genStdBatchId, 1);
+$genStdBatchesYear =System::getColById('genstudentbatches', 'genStdBatchId', $genStdBatchId, 1);
 ?>
 <div  class="row">
 <div class="col-md-12">

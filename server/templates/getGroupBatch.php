@@ -16,7 +16,7 @@ if(!empty($loadSession)):
 foreach($loadSession as $Session): 
  
 ?>	
-<option value="<?php echo $Session['genStdBatchId']; ?>" ><?php echo System::getColById('genStudentBatches', 'genStdBatchId', $Session['genStdBatchId'], 1);  ?></option>
+<option value="<?php echo $Session['genStdBatchId']; ?>" ><?php echo System::getColById('genstudentbatches', 'genStdBatchId', $Session['genStdBatchId'], 1);  ?></option>
 <?php 
 endforeach;
 ?>

@@ -7,7 +7,7 @@ $exambankId=$_GET['exambankId'];
 //$classId=8;
 	
  
-$loadCourse = System::loadTblCond2('beedyGroupSub', 'subId', 'exambankId', $subId, $exambankId);  
+$loadCourse = System::loadTblCond2('beedygroupsub', 'subId', 'exambankId', $subId, $exambankId);  
  
  ?>
  <?php 

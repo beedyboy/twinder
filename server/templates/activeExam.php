@@ -21,14 +21,14 @@ $loadExamList = $GetExam->loadExamList();
 $i = 0;
 foreach($loadExamList as $EXAM): 
 $i++;
-$classId = Database::getName('beedySubjectList', 'subId', $EXAM['subId'], 2);  
+$classId = Database::getName('beedysubjectlist', 'subId', $EXAM['subId'], 2);  
 $subId =$EXAM['subId']; 
-$className =System::getColById('beedyClassList', 'classId', $classId, 1); 
+$className =System::getColById('beedyclasslist', 'classId', $classId, 1); 
 ?>
 <tr class="del<?php echo $EXAM['bankId']; ?>">
 <td align="center" class="hide"><?php echo $EXAM['bankId']; ?></td>
 <td> <?php echo $i; ?></td>
-<td><?php echo $examName = Database::getName('beedySubjectList', 'subId', $subId, 1); ?>   </td>
+<td><?php echo $examName = Database::getName('beedysubjectlist', 'subId', $subId, 1); ?>   </td>
 <td> <?php echo $EXAM['Exam_Date']; ?></td>
 <td> <?php echo $className; ?></td>  
 <td><?php if($EXAM['Active']== "Yes"): echo "Active"; else: echo "-"; endif; ?></td>

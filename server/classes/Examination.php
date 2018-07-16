@@ -8,7 +8,7 @@ parent::__construct();
 
 public static function loadBankGrp($exambankId){
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedyGroupSub WHERE exambankId=:exambankId");
+$select = $conn->db->prepare("SELECT * FROM beedygroupsub WHERE exambankId=:exambankId");
 $select->execute(array(':exambankId'=>$exambankId));
 return $select->fetchAll();
 }
@@ -33,10 +33,10 @@ return $select->fetchAll();
   ##################LOADER##########################
 public static function CreateLoaderGrp(){ //bank group;
 $conn = Database::getInstance();
-if($existCheck = self::existOne('beedyGroup', 'bankName', $_POST['bankName'])==0)
+if($existCheck = self::existOne('beedygroup', 'bankName', $_POST['bankName'])==0)
 {
 	//$time = time();
-$stmt = $conn->db->prepare("INSERT INTO beedyGroup (bankName) VALUES (:bankName)");
+$stmt = $conn->db->prepare("INSERT INTO beedygroup (bankName) VALUES (:bankName)");
 $stmt->bindParam(':bankName', $_POST['bankName'], PDO::PARAM_STR); 
 if ($stmt->execute()): 
 return 1; 	else: return 0;	endif; } else {return 2;}
@@ -44,9 +44,9 @@ return 1; 	else: return 0;	endif; } else {return 2;}
 
 public static function addNewBankCourse(){
 $conn = Database::getInstance();
-if($existCheck = self::existTwo('beedyGroupSub', 'exambankId', 'subId', $_POST['exambankId'], $_POST['subId'] )==0)
+if($existCheck = self::existTwo('beedygroupsub', 'exambankId', 'subId', $_POST['exambankId'], $_POST['subId'] )==0)
 {
-$stmt = $conn->db->prepare("INSERT INTO beedyGroupSub (exambankId, subId, Exam_Instruction, Exam_Duration, Exam_Date)
+$stmt = $conn->db->prepare("INSERT INTO beedygroupsub (exambankId, subId, Exam_Instruction, Exam_Duration, Exam_Date)
  VALUES (:exambankId, :subId, :Exam_Instruction, :Exam_Duration, :Exam_Date)");
 $stmt->bindParam(':exambankId', $_POST['exambankId']);
 $stmt->bindParam(':subId', $_POST['subId'] );
@@ -121,7 +121,7 @@ return $select;
  public static function loadExamList(){
 	$today = date("Y-m-d");
 $conn = Database::getInstance();
-$select = $conn->db->prepare("SELECT * FROM beedyGroupSub WHERE Exam_Date=:nn");
+$select = $conn->db->prepare("SELECT * FROM beedygroupsub WHERE Exam_Date=:nn");
 $select->execute(array(':nn'=>$today));
 return $select->fetchAll();
 }
@@ -196,7 +196,7 @@ $query->bindParam(':Question_Id', $POST['questionno'], PDO::PARAM_INT);
   
 public static function updateBnkGroup($bankName,$exambankId){
 	$conn = Database::getInstance();
-$updateClass = $conn->db->prepare("UPDATE beedyGroup SET  bankName=:bankName  WHERE exambankId=:exambankId ");
+$updateClass = $conn->db->prepare("UPDATE beedygroup SET  bankName=:bankName  WHERE exambankId=:exambankId ");
 $updateClass->bindParam(':bankName', $bankName);
 $updateClass->bindParam(':exambankId', $exambankId);
  if($updateClass->execute()) {return "Modified successfully!";} else {return "Error:: Update failed";} 
@@ -205,11 +205,11 @@ $updateClass->bindParam(':exambankId', $exambankId);
 public static function updateExamSubGrp($subId,$exambankId,$Exam_Instruction,$Exam_Duration,$Exam_Date,$mark,$getface,$examTypeId,$showsorting,$showresult,$no_ques,$Active){
 	$conn = Database::getInstance();
 	
-$select = $conn->db->prepare("SELECT * FROM beedyGroupSub WHERE exambankId = ? AND subId = ? ");
+$select = $conn->db->prepare("SELECT * FROM beedygroupsub WHERE exambankId = ? AND subId = ? ");
 $select->execute(array($exambankId,$subId));
 $bankId = $select->fetchColumn(0);
 
- $query = $conn->db->prepare("UPDATE beedyGroupSub SET Exam_Date=:Exam_Date, Exam_Instruction=:Exam_Instruction, 
+ $query = $conn->db->prepare("UPDATE beedygroupsub SET Exam_Date=:Exam_Date, Exam_Instruction=:Exam_Instruction, 
  Exam_Duration=:Exam_Duration, Total_Question=:no_ques, 
  Mark=:mark, faceId=:getface, examTypeId=:examTypeId, random=:showsorting,  Show_Result=:showresult, Active=:Active WHERE bankId=:bankId ");
 
@@ -231,7 +231,7 @@ $bankId = $select->fetchColumn(0);
 
 public static function deleteteBnkGroup($exambankId){
 $conn = Database::getInstance(); 
-$deleteInfo = $conn->db->prepare("DELETE FROM beedyGroup WHERE exambankId = :exambankId");
+$deleteInfo = $conn->db->prepare("DELETE FROM beedygroup WHERE exambankId = :exambankId");
 $deleteInfo->bindValue(":exambankId",$exambankId);
 $deleteInfo->execute();
 return 1;
@@ -239,7 +239,7 @@ return 1;
 
 public static function deleteteCourseFile($bankId){
 $conn = Database::getInstance(); 
-$deleteInfo = $conn->db->prepare("DELETE FROM beedyGroupSub WHERE bankId = :bankId");
+$deleteInfo = $conn->db->prepare("DELETE FROM beedygroupsub WHERE bankId = :bankId");
 $deleteInfo->bindValue(":bankId",$bankId);
 $deleteInfo->execute();
 return 1;
@@ -249,7 +249,7 @@ return 1;
 public static function enableExam($bankId){
 $conn = Database::getInstance();
 $Active	= "Yes";
-$deleteInfo = $conn->db->prepare("UPDATE beedyGroupSub SET Active=:Active WHERE bankId = :bankId");
+$deleteInfo = $conn->db->prepare("UPDATE beedygroupsub SET Active=:Active WHERE bankId = :bankId");
 $deleteInfo->bindValue(":bankId",$bankId);
 $deleteInfo->bindValue(":Active",$Active);
 $deleteInfo->execute();
@@ -258,7 +258,7 @@ return "Examination started successfully";
 public static function endExam($bankId){
 $conn = Database::getInstance();
 $Active	= "No";
-$deleteInfo = $conn->db->prepare("UPDATE beedyGroupSub SET Active=:Active WHERE bankId = :bankId");
+$deleteInfo = $conn->db->prepare("UPDATE beedygroupsub SET Active=:Active WHERE bankId = :bankId");
 $deleteInfo->bindValue(":bankId",$bankId);
 $deleteInfo->bindValue(":Active",$Active);
 $deleteInfo->execute();
@@ -267,7 +267,7 @@ return "Examination ended successfully";
 public static function enableStudent($bankId){
 $conn = Database::getInstance();
 $Active	= "Yes";
-$deleteInfo = $conn->db->prepare("UPDATE beedyGroupSub SET Active=:Active WHERE bankId = :bankId");
+$deleteInfo = $conn->db->prepare("UPDATE beedygroupsub SET Active=:Active WHERE bankId = :bankId");
 $deleteInfo->bindValue(":bankId",$bankId);
 $deleteInfo->bindValue(":Active",$Active);
 $deleteInfo->execute();
