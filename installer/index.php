@@ -1,6 +1,7 @@
-<?php include_once "classes/session.php"; 
+<?php 
+/*include_once "classes/session.php"; 
 
-  $GetSession = new Session;
+  $GetSession = new Session;*/
   ?>
 <style>
 .clear { height:10px;} 

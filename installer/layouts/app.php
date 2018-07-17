@@ -6,8 +6,7 @@
 	<title>TWINDER Installer</title>  
 <link rel="stylesheet" href="public/css/color.css">
 <link rel="stylesheet" href="public/css/layout.css">
-<link rel="stylesheet" href="public/css/form.css">
-<link rel="stylesheet" href="public/css/navbar.css"> 
+<link rel="stylesheet" href="public/css/form.css"> 
 <link rel="stylesheet" href="public/css/table.css"> 
 <link rel="stylesheet" href="public/css/parsley.css"> 
 
@@ -67,14 +66,8 @@ background: #fff;
 
 <div class="column offset-3 column-6 thick-border">
 <?php include "header.php"; ?>
-<?php
-$step = '';
-if(!Session::exists('steps')):
-Session::set('steps', 1);
-
-  endif;
-?>
-<input type="hidden" name="step" id="step" value="<?=Session::get('steps')?>">
+ 
+ 
  <div class="grid mobile ">
 <div class="column column-12 installer">
  
