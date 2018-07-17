@@ -53,9 +53,18 @@ if($install == 'comp')
 	{
 		    
 
-           $dir = 'installer/index.php'; // IMPORTANT: with '/' at the end
+           $dir = 'installer/'; // IMPORTANT: with '/' at the end
            $remove_directory = delete_directory($dir);
 
+           $dir2 = 'installer'; // IMPORTANT: with '/' at the end
+           $remove_directory2 = removeDirectory($dir2);
+
+/*	 $dir2 = 'abc/'; 
+				 chmod($dir2, 0750);
+       echo    $remove_directory2 = delete_directory($dir2);
+ 
+unlink($dir2.'system.php');
+unlink($dir2.'logout.php');*/
         
 	}
 
