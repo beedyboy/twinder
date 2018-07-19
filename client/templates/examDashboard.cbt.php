@@ -1,5 +1,5 @@
  <?php
-include('../includes/system.php');
+include_once('includes/system.php');
  
   $classId =$_SESSION['cbt']['classId']; 
 $stdAddNum =$_SESSION['cbt']['stdAddNum']; 
@@ -18,20 +18,20 @@ $bankId = $GetExam->loadExamData($LIST['subId'], 0);
 $process= $GetExam->process($stdAddNum,$bankId); 		
 	  $subId = $LIST['subId']; 
 	  $today = date("Y-m-d"); 
- $ExamSetStatus = Database::existThree("beedygroupsub", "subId", "Exam_DATE", "Active", $LIST['subId'], $today, 'Yes');
+ $ExamSetStatus = System::existThree("beedygroupsub", "subId", "Exam_DATE", "Active", $LIST['subId'], $today, 'Yes');
 	  ?>  
   		<a href="<?php  if($ExamSetStatus ==1 && $process!=1): 
-	echo "?pid=22&action=Write-Exam/&bankId=$bankId&face=".Database::getName2('beedygroupsub', 'bankId', 'subId', $bankId, $LIST['subId'], 9); 
+	echo "?pid=22&action=Write-Exam/&bankId=$bankId&face=".System::getName2('beedygroupsub', 'bankId', 'subId', $bankId, $LIST['subId'], 9); 
 	else: echo "#"; endif; ?>"> <button class="btn <?php if($ExamSetStatus ==0 && $process==1): echo "btn-danger"; 
 	elseif($ExamSetStatus ==1 && $process==1): echo "btn-danger"; 
 	elseif($ExamSetStatus ==1 && $process==0): echo "btn-success";
 	else: 
 	echo "btn-info";	endif; ?>">
-		<?php echo Database::getName('beedysubjectlist', 'subId', $LIST['subId'], 1); ?>
+		<?php echo System::getName('beedysubjectlist', 'subId', $LIST['subId'], 1); ?>
 		</button>
 	<br />
 	<span class="badge"><?php if($ExamSetStatus ==1 && $process==1): echo "Status: Done"; 
-		elseif($ExamSetStatus ==1 && $process==0): echo "Date: ".Database::getName2('beedygroupsub', 'bankId', 'subId', $bankId, $LIST['subId'], 4); 
+		elseif($ExamSetStatus ==1 && $process==0): echo "Date: ".System::getName2('beedygroupsub', 'bankId', 'subId', $bankId, $LIST['subId'], 4); 
 		else: 	echo "Examination not available"; 
 	endif; ?></span>
 	</a>

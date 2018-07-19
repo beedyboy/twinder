@@ -10,8 +10,8 @@
 	  $stdAddNum=$_POST['stdAddNum']; 
 	  $genStdBatchId=$_POST['genStdBatchId']; 
 	  $SchoolTermId=$_POST['SchoolTermId']; 
- //$resultInds  = $GetExam->resultInd($stdAddNum,$genStdBatchId,$SchoolTermId);
- $resultInd  = $GetExam->resultInd($stdAddNum,$genStdBatchId,$SchoolTermId);
+ //$resultInds  = Examination::resultInd($stdAddNum,$genStdBatchId,$SchoolTermId);
+ $resultInd  = Examination::resultInd($stdAddNum,$genStdBatchId,$SchoolTermId);
   
 if(!empty($resultInd)): ?>
 
@@ -26,12 +26,12 @@ if(!empty($resultInd)): ?>
 
 <tr>
 <th>Session</th>
-<td><?php echo  Database::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1); ?></td>
+<td><?php echo  System::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1); ?></td>
 </tr>
 
 <tr>
 <th>Term</th>
-<td><?php echo  Database::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1); ?></td>
+<td><?php echo  System::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1); ?></td>
 </tr>
 
 </table>
@@ -48,13 +48,13 @@ if(!empty($resultInd)): ?>
 <?php
 foreach($resultInd as $LIST): 
 $bankId = $LIST['bankId']; 
-$subId = Database::getName('beedygroupsub', 'bankId',$bankId,1);
- $Total_Question = Database::getName('beedygroupsub', 'bankId',$bankId,7);
- $Mark = Database::getName('beedygroupsub', 'bankId',$bankId,8);
+$subId = System::getName('beedygroupsub', 'bankId',$bankId,1);
+ $Total_Question = System::getName('beedygroupsub', 'bankId',$bankId,7);
+ $Mark = System::getName('beedygroupsub', 'bankId',$bankId,8);
  $obt = $Total_Question * $Mark;
 ?>
 <tr>
-<td><?php echo Database::getName('beedysubjectlist', 'subId', $subId, 1); ?> </td>
+<td><?php echo System::getName('beedysubjectlist', 'subId', $subId, 1); ?> </td>
 <td><?php echo $LIST['Score']; ?> </td>
 <td><?php echo $obt ?> </td>
 <td><?php echo $LIST['Percentage']; ?> </td>
@@ -73,9 +73,9 @@ endforeach;
  
 <span class="pull-right">  
 <a href='templates/stdExportPDF.php?stdAddNum=<?php echo $stdAddNum; ?>&SchoolTermId=<?php echo $SchoolTermId; ?>&genStdBatchId=<?php echo $genStdBatchId; ?>' target='_blank' class='demo'>
-<img src="images/pdfR.png" id="<?php echo $stdAddNum; ?>"  height="40px"  class="img-rounded" title="Export to PDF" />
+<img src="images/pdfR.PNG" id="<?php echo $stdAddNum; ?>"  height="40px"  class="img-rounded" title="Export to PDF" />
 </a>
-<img src="images/csvR.png" id="<?php echo $stdAddNum; ?>" height="40px" class="img-rounded indExpCsv" title="Export to CSV" />
+<img src="images/csvR.PNG" id="<?php echo $stdAddNum; ?>" height="40px" class="img-rounded indExpCsv" title="Export to CSV" />
  <a>
 <img src="images/Word-icon.png" id="<?php echo $stdAddNum; ?>"   height="40px" class="img-rounded indExpDoc" title="Export to Word Document" />
 </a>
@@ -97,7 +97,7 @@ endif;
 	  $genStdBatchId=$_POST['genStdBatchId']; 
 	  $SchoolTermId=$_POST['SchoolTermId']; 
 	  
-	   $resultClass  = $GetExam->resultClass($bankId,$genStdBatchId,$SchoolTermId);
+	   $resultClass  = Examination::resultClass($bankId,$genStdBatchId,$SchoolTermId);
  
  $subId = System::getColById('beedygroupsub', 'bankId', $bankId, 1); 
  $classId = System::getColById('beedysubjectlist', 'subId', $subId, 2); 
@@ -111,8 +111,8 @@ if(!empty($resultClass)): ?>
 <tr>
 <td>
 
-<?php echo  Database::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1)."\t"; ?> 
-<?php echo  Database::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1)."\t"; ?> 
+<?php echo  System::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1)."\t"; ?> 
+<?php echo  System::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1)."\t"; ?> 
  <b>(<?php echo System::getColById('beedyclasslist', 'classId', $classId, 1)."\t"
  .System::getColById('beedysubjectlist', 'subId', $subId, 1); 
   ?>)
@@ -134,9 +134,9 @@ if(!empty($resultClass)): ?>
 <?php
 foreach($resultClass as $LIST): 
 $bankId = $LIST['bankId']; 
-$subId = Database::getName('beedygroupsub', 'bankId',$bankId,1);
- $Total_Question = Database::getName('beedygroupsub', 'bankId',$bankId,7);
- $Mark = Database::getName('beedygroupsub', 'bankId',$bankId,8);
+$subId = System::getName('beedygroupsub', 'bankId',$bankId,1);
+ $Total_Question = System::getName('beedygroupsub', 'bankId',$bankId,7);
+ $Mark = System::getName('beedygroupsub', 'bankId',$bankId,8);
  $obt = $Total_Question * $Mark;
  $stdAddNum =  $LIST['stdAddNum'];
 ?>
@@ -146,7 +146,7 @@ $subId = Database::getName('beedygroupsub', 'bankId',$bankId,1);
  echo System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 1)."\t".
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 2)."\t". 
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 3);  ?> </td>
-<td><?php echo Database::getName('beedysubjectlist', 'subId', $subId, 1); ?> </td>
+<td><?php echo System::getName('beedysubjectlist', 'subId', $subId, 1); ?> </td>
 <td><?php echo $LIST['Score']; ?> </td>
 <td><?php echo $obt ?> </td>
 <td><?php echo $LIST['Percentage']; ?> </td>
@@ -167,9 +167,9 @@ endforeach;
  
 <span class="pull-right">  
 <a href='templates/clsExportPDF.php?bankId=<?php echo $bankId; ?>&SchoolTermId=<?php echo $SchoolTermId; ?>&genStdBatchId=<?php echo $genStdBatchId; ?>' target='_blank' class='demo'>
-<img src="images/pdfR.png" id="<?php echo $bankId; ?>"  height="40px"  class="img-rounded" title="Export to PDF" />
+<img src="images/pdfR.PNG" id="<?php echo $bankId; ?>"  height="40px"  class="img-rounded" title="Export to PDF" />
 </a>
-<img src="images/csvR.png" id="<?php echo $bankId; ?>" height="40px" class="img-rounded clsExpCsv" title="Export to CSV" />
+<img src="images/csvR.PNG" id="<?php echo $bankId; ?>" height="40px" class="img-rounded clsExpCsv" title="Export to CSV" />
  <a>
 <img src="images/Word-icon.png" id="<?php echo $bankId; ?>"   height="40px" class="img-rounded clsExpDoc" title="Export to Word Document" />
 </a>
@@ -193,7 +193,7 @@ endif;
 	  $genStdBatchId=$_POST['genStdBatchId']; 
 	  $SchoolTermId=$_POST['SchoolTermId']; 
 	  
-	   $resultClass  = $GetExam->resultClass($bankId,$genStdBatchId,$SchoolTermId);
+	   $resultClass  = Examination::resultClass($bankId,$genStdBatchId,$SchoolTermId);
  
  $subId = System::getColById('beedygroupsub', 'bankId', $bankId, 1); 
  $classId = System::getColById('beedysubjectlist', 'subId', $subId, 2); 
@@ -209,8 +209,8 @@ if(!empty($resultClass)): ?>
 
 <?php  
  echo System::getColById('beedygroup', 'exambankId', $exambankId, 1)."\t"."-";  
- echo  Database::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1)."\t"; ?> 
-<?php echo  Database::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1)."\t"; ?> 
+ echo  System::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1)."\t"; ?> 
+<?php echo  System::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1)."\t"; ?> 
  <b>(<?php echo System::getColById('beedyclasslist', 'classId', $classId, 1)."\t"
  .System::getColById('beedysubjectlist', 'subId', $subId, 1); 
   ?>)
@@ -233,9 +233,9 @@ if(!empty($resultClass)): ?>
 <?php
 foreach($resultClass as $LIST): 
 $bankId = $LIST['bankId']; 
-$subId = Database::getName('beedygroupsub', 'bankId',$bankId,1);
- $Total_Question = Database::getName('beedygroupsub', 'bankId',$bankId,7);
- $Mark = Database::getName('beedygroupsub', 'bankId',$bankId,8);
+$subId = System::getName('beedygroupsub', 'bankId',$bankId,1);
+ $Total_Question = System::getName('beedygroupsub', 'bankId',$bankId,7);
+ $Mark = System::getName('beedygroupsub', 'bankId',$bankId,8);
  $obt = $Total_Question * $Mark;
  $stdAddNum =  $LIST['stdAddNum'];
 ?>
@@ -245,7 +245,7 @@ $subId = Database::getName('beedygroupsub', 'bankId',$bankId,1);
  echo System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 1)."\t".
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 2)."\t". 
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 3);  ?> </td>
-<td><?php echo Database::getName('beedysubjectlist', 'subId', $subId, 1); ?> </td>
+<td><?php echo System::getName('beedysubjectlist', 'subId', $subId, 1); ?> </td>
 <td><?php echo $LIST['Score']; ?> </td>
 <td><?php echo $obt ?> </td>
 <td><?php echo $LIST['Percentage']; ?> </td>
@@ -269,10 +269,10 @@ endforeach;
 <input type="hidden" name="genStdBatchId"  class="genStdBatchId<?php echo $bankId; ?>" value="<?php echo $genStdBatchId; ?>" />
  
 <span class="pull-right">  
-<a href='templates/grpExportPDF.php?bankId=<?php echo $bankId; ?>&exambankId=<?php echo $exambankId; ?>&SchoolTermId=<?php echo $SchoolTermId; ?>&genStdBatchId=<?php echo $genStdBatchId; ?>' target='_blank' class='demo'>
-<img src="images/pdfR.png" id="<?php echo $bankId; ?>"  height="40px"  class="img-rounded" title="Export to PDF" />
+<a href='templates/grpExportPDF.php?bankId=<?php echo $bankId; ?>&exambankId=<?php echo $exambankId; ?>&SchoolTermId=<?php echo $SchoolTermId; ?>&genStdBatchId=<?php echo $genStdBatchId; ?>' target='_blank' class='demo'> 
+<img src="images/pdfR.PNG" id="<?php echo $bankId; ?>"  height="40px"  class="img-rounded" title="Export to PDF" />
 </a>
-<img src="images/csvR.png" id="<?php echo $bankId; ?>" height="40px" class="img-rounded grpExpCsv" title="Export to CSV" />
+<img src="images/csvR.PNG" id="<?php echo $bankId; ?>" height="40px" class="img-rounded grpExpCsv" title="Export to CSV" />
  <a>
 <img src="images/Word-icon.png" id="<?php echo $bankId; ?>"   height="40px" class="img-rounded grpExpDoc" title="Export to Word Document" />
 </a>

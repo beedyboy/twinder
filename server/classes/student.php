@@ -19,10 +19,12 @@ $select = $conn->db->prepare("SELECT * FROM beedystudentprofile WHERE stdAddNum=
 $select->execute();
 return $select;
 }
-
 public static function addStudent($POST,$FILES){
+error_reporting(E_ALL);
+		ini_set('display_errors', 1);
 $conn = Database::getInstance();
 $barcode = substr(number_format(time() * rand(),0,'',''),0,13);
+$image = '';
 $stdSurname = $_POST['stdSurname']; 
 $stdFirstName = $_POST['stdFirstName']; 
 $stdMiddleName = $_POST['stdMiddleName'];
@@ -36,13 +38,13 @@ $stdEmail = $_POST['stdEmail'];
 $File_Name  = strtolower($FILES['photo']['name']);
 if($File_Name!="")
 {
- $image = self::uploadImage($FILES,$barcode,'students/');
+ $image = System::uploadImage($FILES,$barcode,'students/');
 }
 else{
 	$image = $File_Name;
 }
  
-if($existCheck = self::existTwo('beedystudentprofile',  'genStdBatchId', 'stdEmail',  $genStdBatchId, $stdEmail)==0)
+if($existCheck = System::existTwo('beedystudentprofile',  'genStdBatchId', 'stdEmail',  $genStdBatchId, $stdEmail)==0)
 {
 //$barcodeimg = $barcode.".png"; 
 $stmt = $conn->db->prepare("INSERT INTO beedystudentprofile (stdSurname, stdFirstName, stdMiddleName, 
@@ -50,7 +52,7 @@ stdDob, stdGender, stdPicture,  stdEmail, username, password, genStdBatchId,  cl
 if($stmt->execute( array($stdSurname, $stdFirstName, $stdMiddleName, $stdDob, $stdGender, $image,
   $stdEmail, $username, $password, $genStdBatchId, $classId  ) )):
 $sid = $conn->db->lastInsertId();
-self::addLogin('stdAddNum',  $sid, $stdEmail, $username, $password, $stdSurname, $stdFirstName, 3); 
+System::addLogin('stdAddNum',  $sid, $stdEmail, $username, $password, $stdSurname, $stdFirstName, 3); 
 return 1;
 else:	return 0; endif;
 } else {return 2; }
@@ -60,6 +62,7 @@ else:	return 0; endif;
 public static function stdUpdateProcess(){
 $conn = Database::getInstance();
 $type = $_POST['type'];
+
 if($type=="UpdPersonal"):
 $updateClass = $conn->db->prepare("UPDATE beedystudentprofile SET  stdSurname=:stdSurname, stdFirstName=:stdFirstName,
  stdMiddleName=:stdMiddleName, stdDob=:stdDob,  stdGender=:stdGender WHERE stdAddNum=:stdAddNum ");
@@ -70,13 +73,14 @@ $updateClass->bindParam(':stdDob', $_POST['stdDob'], PDO::PARAM_STR);
 $updateClass->bindParam(':stdGender', $_POST['stdGender'], PDO::PARAM_STR); 
 $updateClass->bindParam(':stdAddNum', $_POST['stdAddNum']);
 if($updateClass->execute()){return 1;} else {return 0;} 
-elseif($type=="UpdateAcademic"):
-$updateClass = $conn->db->prepare("UPDATE beedystudentprofile SET 
- genStdBatchId=:genStdBatchId, genStudentClassId=:genStudentClassId   WHERE stdAddNum=:stdAddNum "); 
+
+elseif($type=="UpdateAcademic"): 
+$updateClass = $conn->db->prepare("UPDATE beedystudentprofile SET genStdBatchId=:genStdBatchId, classId=:genStudentClassId   WHERE stdAddNum=:stdAddNum "); 
 $updateClass->bindParam(':genStdBatchId', $_POST['genStdBatchId'], PDO::PARAM_INT); 
 $updateClass->bindParam(':genStudentClassId', $_POST['classId'], PDO::PARAM_INT);
 $updateClass->bindParam(':stdAddNum', $_POST['stdAddNum']);
 if($updateClass->execute()){return 1;} else {return 0;} 
+
 elseif($type=="UpdateContact"):
 $updateClass = $conn->db->prepare("UPDATE beedystudentprofile SET  username=:username, password=:password, stdEmail=:stdEmail   WHERE stdAddNum=:stdAddNum ");
 $updateClass->bindParam(':username', $_POST['username'], PDO::PARAM_STR);
@@ -88,6 +92,23 @@ if($updateClass->execute()){
  
 endif;
 } 
+
+
+
+public static function updateStdLogin($email, $username, $password, $stdAddNum){
+$conn = Database::getInstance();  
+$pass = md5($password);
+$updateClass = $conn->db->prepare("UPDATE login SET email=:email, username=:username, password=:password   WHERE stdAddNum=:stdAddNum ");
+$updateClass->bindParam(':email', $email, PDO::PARAM_STR);
+$updateClass->bindParam(':username', $username, PDO::PARAM_STR);
+$updateClass->bindParam(':password', $pass, PDO::PARAM_STR);
+$updateClass->bindParam(':stdAddNum', $stdAddNum);
+if($updateClass->execute()):
+return 1;
+else:
+	return 0;
+endif;
+}
 
  
 public static function changeProfPic($POST,$FILES){

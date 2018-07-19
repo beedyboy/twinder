@@ -38,6 +38,32 @@ $select = $conn->db->prepare("SELECT * FROM $tbl WHERE $col LIKE ? AND $col2 LIK
 $select->execute(array($value, $value2, $value3, $value4));
 return $select->rowCount();
 } 
+
+
+ /**
+  *@method     getField()                
+  * @return field column
+  */ 
+ public static function getField($tbl, $return){ 
+$conn = Database::getInstance();
+ $select = $conn->db->prepare("SELECT * FROM $tbl");
+$select->execute();
+return $select->fetchColumn($return); 
+}
+public static function getName($tbl, $col, $id, $return){
+$conn = Database::getInstance();
+$select = $conn->db->prepare("SELECT * FROM $tbl WHERE $col LIKE ? ");
+$select->execute(array($id));
+return $select->fetchColumn($return); 
+}
+ 
+public static function getName2($tbl, $col, $col2, $val, $val2, $return){
+$conn = Database::getInstance();
+$select = $conn->db->prepare("SELECT * FROM $tbl WHERE $col LIKE ? AND  $col2 LIKE ? ");
+$select->execute(array($val, $val2));
+return $select->fetchColumn($return); 
+}
+
  
 public static function getColById($tbl, $col, $id, $return){
 $conn = Database::getInstance();

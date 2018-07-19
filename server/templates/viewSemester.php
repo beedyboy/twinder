@@ -30,7 +30,7 @@ $i++;
 <td><?php if($SchoolTerm['SchoolTermId'] == $schArray['CurrentSemester']): echo "Yes"; else: echo "No"; endif; ?></td>
 <td> 
  <?php if (in_array("1_3a", $area_privilege)): ?>
-<button class="btn btn-warning" type="button"  title="Click to Modify" id="<?php echo $SchoolTerm['SchoolTermId']; ?>" onclick="modifySemester(this.id)" ><i class="icon-edit icon-large"></i>&nbsp;Modify</button>
+<button class="btn btn-warning  btn-xs" type="button"  title="Click to Modify" id="<?php echo $SchoolTerm['SchoolTermId']; ?>" onclick="modifySemester(this.id)" ><i class="icon-edit icon-large"></i>&nbsp;Modify</button>
 <?php if($SchoolTerm['SchoolTermId'] == $schArray['CurrentSemester']): echo "Current Semester "; else: ?>
 <a id="setCurrentSems"  sid="<?php echo $SchoolTerm['SchoolTermId']; ?>" class="btn btn-xs btn-success">&nbsp; Set Current</a>
 <?php endif; endif; 

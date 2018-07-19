@@ -357,7 +357,7 @@ $i++; ?>
               </div>
               <!-- modal -->
    
-   
+   <script src="../packages/dist/sweetalert.min.js"></script> 
 <?php  //include JS files
   foreach ($arr_scripts as $eachscript) {
   	echo '<script type="text/JavaScript" src="../style/' . $eachscript . '"></script>' . "\n";

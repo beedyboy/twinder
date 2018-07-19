@@ -1,11 +1,11 @@
 <?php 
-include('../../includes/system2.php');
+// include('includes/system2.php');
 
 $final = array();
 $cbtReady = null;
 if(!isset($_SESSION['cbtReady'])): 
  $cbtReady = $_SESSION['cbtReady'] ="cbtReady";
-$conn = Database::getInstance();
+$conn = System::getInstance();
 $bank= array();
 $array= array();
 $beedy_bankId=  $_SESSION['cbt']['bankId'];
@@ -13,7 +13,7 @@ $bankId=$_SESSION['cbt']['bankId'];
 $Total_Question=$_SESSION['Total_Question'];
 $random=  $_SESSION['random'];
 $loadIntQuestion =NULL;
-$loadIntQuestion =   $GetExam->loadintQuestionModeFace2($beedy_bankId);
+$loadIntQuestion =   Examination::loadintQuestionModeFace2($beedy_bankId);
 function array_random($arr, $num = 1) {
 shuffle($arr);
 $r = array();
@@ -61,7 +61,7 @@ $j[$a]=$k;
 return $r;
 }
 
-if(count($loadIntQuestion) > 0) {
+if($loadIntQuestion->rowCount() > 0) {
 // var_dump($loadIntQuestion); 
 while($row = $loadIntQuestion->fetch())
 {

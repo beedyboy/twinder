@@ -297,6 +297,7 @@ $("form").find(':button').html('<p>connecting to the server......</p>');
 	},
 success: function(result)   // A function to be called if request succeeds
 {  
+
  if(result == 1){
 		swal("Student\'s data has been added successfully");
 		$("form").find(':input').attr('disabled',false);
@@ -484,7 +485,7 @@ $.ajax({
 	url:'server.php',
 	type: 'POST',
 	data: formdata,
-	success: function( result ){
+	success: function( result ){ 
 		 if(result == 1) {
 		swal("New Term/Semester has been added successfully");
 		$(_this).find(':input').attr('disabled',false);
@@ -664,7 +665,7 @@ $.ajax({
 	url:'server.php',
 	type: 'POST',
 	data: formdata,
-	success: function( result ){ 
+	success: function( result ){  
 		 if(result == 1) {
 		swal("User Type has been added successfully");
 		$(_this).find(':input').attr('disabled',false);
@@ -961,7 +962,7 @@ $.ajax({
 	url:'../server.php',
 	type: 'POST',
 	data: formdata,
-	success: function( result ){
+	success: function( result ){ 
 		 if(result == 1) {
 		swal("Update done successfully");
 			refreshAll();

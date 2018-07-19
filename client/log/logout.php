@@ -81,7 +81,7 @@ if(!isset($_SESSION)){
 $_SESSION = array();
 session_regenerate_id(); 
 session_destroy();
- //echo '<meta http-equiv="refresh" content="2;url=../index.php">';
+ echo '<meta http-equiv="refresh" content="2;url=../index.php">';
   echo'<progress max=100><h1>Progress: 60% done. </h1></progress><br>';
  echo'<span class="itext">Logging out please wait!...</span>';
 ?>

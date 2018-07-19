@@ -65,11 +65,11 @@ color:#FFF;
 }
 </style>
 <?php 
-include('../../includes/system2.php');
-$conn = $GetDatabase->getInstance();
+include_once('../../includes/system2.php');
+// $conn = $GetSystem->getInstance();
 date_default_timezone_set("Etc/GMT-8");  
 $index = $_GET['index'];  
-$get = $_GET['id']; 
+ $get = $_GET['id']; 
 $total = $_GET['total'];
 $member1 =$GetExam->getQuestion($index); 
 $queid=$member1['Question_Id'];

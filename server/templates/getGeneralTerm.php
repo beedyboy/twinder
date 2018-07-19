@@ -5,7 +5,7 @@ include('../includes/system.php');
 $genStdBatchId=$_GET['genStdBatchId']; 
 
  
-$loadTerm = Database::loadDistinctCond1('SchoolTermId', 'beedy_exam_result', 'genStdBatchId', $genStdBatchId);  
+$loadTerm = System::loadDistinctCond1('SchoolTermId', 'beedy_exam_result', 'genStdBatchId', $genStdBatchId);  
   ?>
   <select class="form-control" id="SchoolTermId" name="SchoolTermId" required>
 <?php 

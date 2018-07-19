@@ -1,7 +1,7 @@
 <?php 
 include('dataTable.php'); 
 include('../includes/system.php');
-$loadExamList = $GetExam->loadExamList();
+$loadExamList = Examination::loadExamList();
 ?> 
 <table cellpadding="0" cellspacing="0" border="0" class="display" id="log" class="jtable">
 <thead>
@@ -21,21 +21,21 @@ $loadExamList = $GetExam->loadExamList();
 $i = 0;
 foreach($loadExamList as $EXAM): 
 $i++;
-$classId = Database::getName('beedysubjectlist', 'subId', $EXAM['subId'], 2);  
+$classId = System::getName('beedysubjectlist', 'subId', $EXAM['subId'], 2);  
 $subId =$EXAM['subId']; 
 $className =System::getColById('beedyclasslist', 'classId', $classId, 1); 
 ?>
 <tr class="del<?php echo $EXAM['bankId']; ?>">
 <td align="center" class="hide"><?php echo $EXAM['bankId']; ?></td>
 <td> <?php echo $i; ?></td>
-<td><?php echo $examName = Database::getName('beedysubjectlist', 'subId', $subId, 1); ?>   </td>
+<td><?php echo $examName = System::getName('beedysubjectlist', 'subId', $subId, 1); ?>   </td>
 <td> <?php echo $EXAM['Exam_Date']; ?></td>
 <td> <?php echo $className; ?></td>  
 <td><?php if($EXAM['Active']== "Yes"): echo "Active"; else: echo "-"; endif; ?></td>
 <td> 
 <button type="submit" id="<?php echo $EXAM['bankId']; ?>" 
-class="btn btn-xs btn-danger PerformanceBar" data-placement="right" title="Click to check Performance">
-<i class="icon-lock icon-large"></i>&nbsp;Performance</button>
+class="btn btn-xs btn-info PerformanceBar" data-placement="right" title="Click to check Performance">
+<i class="icon-bar-chart icon-large"></i>&nbsp;Performance</button>
 <input type="hidden" name="action" class="action<?php echo $EXAM['bankId']; ?>" value="examManager" />
 <input type="hidden" name="bankId" value="<?php echo $EXAM['bankId']; ?>" />
 <input type="hidden" name="bankId" class="examName<?php echo $EXAM['bankId']; ?>" value="<?php echo $examName; ?>" />

@@ -25,7 +25,7 @@ $('#f1').append(html);
 }
 }
 
-function myFunction(subId, exambankId){
+function myFunction(subId, exambankId){ 
  if(subId == ''){
 swal("Course File can not be empty.");
 }
@@ -45,6 +45,7 @@ $("#showsorting").html(loading_text);
 $("#showresult").html(loading_text);
 },
 success:function(html){
+	 
 if(html==0){
 alert("something is wrong");
 return false;

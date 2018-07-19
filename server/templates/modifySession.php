@@ -1,5 +1,5 @@
 <?php 
- include('../classes/System.php');  
+include('../includes/system.php');	  
 $genStdBatchId =$_POST['genStdBatchId'];
 ?>
 <p class="alert pageGuide"> Modify Session

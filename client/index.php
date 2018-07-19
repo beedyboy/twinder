@@ -18,8 +18,8 @@
 	include (INCLUDES_PATH . DS . 'functions.cbt.php');
 	include (INCLUDES_PATH . DS . 'system.php'); 
 	 
-	ob_start();
-	session_start();
+/*	ob_start();
+	session_start();*/
   
 $GetSession  = new my_Session();
 $GetDatabase  = new Database();
@@ -28,7 +28,7 @@ $GetBeedyTips  = new BeedyTips();
 $beedy = new beedy();
  
 	//files
-	include (INCLUDES_PATH . DS .'messages.inc.php');
+	// include (INCLUDES_PATH . DS .'messages.inc.php');
 	
 	// include javascripts here
 
@@ -114,7 +114,7 @@ else:
 	
 	@$face = $_GET['face'];
 
-if($face=="" || $page=="examDashboard")
+if($face=="" || $face=="examDashboard")
 {
 	if (!isset($face) || $face >= count($arr_pages)) {
 		$face = 1;
@@ -141,7 +141,7 @@ if($face=="" || $page=="examDashboard")
 	
 	
 @$pid = $_GET['pid'];
-if($pid=="" || $page=="examDashboard")
+if($pid=="" || $pid=="examDashboard")
 {
 	if (!isset($pid) || $pid >= count($arr_pages)) {
 		$pid = 1;

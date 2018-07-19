@@ -1,14 +1,14 @@
 
  <div class="row">
- <div class="col-lg-12">
+ <!-- <div class="col-lg-12">
  <div class="pageGuide">
  
  <a href="?pid=1&action=Add Exam&Loader=CreateGroup/"> <img src="images/db_add.ico" alt=" Create Group" title="Create Group" /> </a> 
-<a href="?pid=1&action=Add Exam&Loader=GroupHelper/"><img src="images/help-about.ico" id="help" alt="Help" title="Help"/></a> 
-<a href="?pid=1&action=Add Exam&Loader=<?php if(empty($_GET['Loader'])): echo "GroupHelper/"; else: echo $_GET['Loader']; endif; ?>"> <img  src="images/view-refresh-3.ico" alt="Refresh" title="Refresh" /> </a> 
+ <a href="?pid=1&action=Add Exam&Loader=GroupHelper/"><img src="images/help-about.ico" id="help" alt="Help" title="Help"/></a> 
+ <a href="?pid=1&action=Add Exam&Loader=<?php if(empty($_GET['Loader'])): echo "GroupHelper/"; else: echo $_GET['Loader']; endif; ?>"> <img  src="images/view-refresh-3.ico" alt="Refresh" title="Refresh" /> </a> 
    
  </div>
- </div>
+ </div> -->
  
  </div> 
    
@@ -305,7 +305,7 @@ $loadExamTypeList = $GetSchool->loadExamTypeList(); ?>
 	<div class=" black-img-white row">		
 						 <div class="col-lg-12 pull-right">
  <input type="reset" class="btn btn-warning" value="Reset" onClick="reset();" title="Click to Reset" />
-<button type="submit" class="btn btn-info"  title="Click to Save" onClick="javascript:save();"><i class="icon-save icon-large"></i>&nbsp;Save</button>
+<button type="submit" class="btn btn-info"  title="Click to Save" onClick="javascript:save();"><i class="fa fa-save icon-large"></i>&nbsp;Save</button>
 <div id="add-button" class="alert hide" style="margin:10px 0 0;"></div>
 
  </div>

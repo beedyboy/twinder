@@ -272,6 +272,39 @@ ul.icons li [class*=" icon-"] {
 .icon-trash:before                { content: "\f014"; }
 .icon-home:before                 { content: "\f015"; }
 .icon-file:before                 { content: "\f016"; }
+
+.fa-file-pdf-o:before {
+  content: "\f1c1";
+}
+.fa-file-word-o:before {
+  content: "\f1c2";
+}
+.fa-file-excel-o:before {
+  content: "\f1c3";
+}
+.fa-file-powerpoint-o:before {
+  content: "\f1c4";
+}
+.fa-file-photo-o:before,
+.fa-file-picture-o:before,
+.fa-file-image-o:before {
+  content: "\f1c5";
+}
+.fa-file-zip-o:before,
+.fa-file-archive-o:before {
+  content: "\f1c6";
+}
+.fa-file-sound-o:before,
+.fa-file-audio-o:before {
+  content: "\f1c7";
+}
+.fa-file-movie-o:before,
+.fa-file-video-o:before {
+  content: "\f1c8";
+}
+.fa-file-code-o:before {
+  content: "\f1c9";
+}
 .icon-time:before                 { content: "\f017"; }
 .icon-road:before                 { content: "\f018"; }
 .icon-download-alt:before         { content: "\f019"; }

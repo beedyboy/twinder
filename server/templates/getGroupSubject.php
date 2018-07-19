@@ -3,7 +3,7 @@ include('../includes/system.php');
 
 $exambankId=$_GET['exambankId'];  
 
-$loadSubject = Database::loadTblCond('beedygroupsub', 'exambankId', $exambankId);  
+$loadSubject = System::loadTblCond('beedygroupsub', 'exambankId', $exambankId);  
   ?>
   <select class="form-control" id="bankId" name="gbankId" onChange="getGroupBatch(this.value)" required>
 <?php 

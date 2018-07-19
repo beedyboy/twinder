@@ -5,7 +5,7 @@ $final = array();
 $cbtReady = null;
 if(!isset($_SESSION['cbtReady'])): 
  $cbtReady = $_SESSION['cbtReady'] ="cbtReady";
-$conn = Database::getInstance();
+$conn = System::getInstance();
 $bank= array();
 $array= array();
 $beedy_bankId=  $_SESSION['cbt']['bankId'];

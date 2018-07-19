@@ -28,7 +28,7 @@ $GetBeedyTips  = new BeedyTips();
 $beedy = new beedy();
  
 	//files
-	include (INCLUDES_PATH . DS .'messages.inc.php');
+	// include (INCLUDES_PATH . DS .'messages.inc.php');
 	
 	// include javascripts here
 $loadPermit = $GetSchool->loadPermit($_SESSION['cbt']['area_privilege']);

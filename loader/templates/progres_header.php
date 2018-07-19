@@ -38,7 +38,7 @@ echo "<div class='black-img-white'>Total Questions(".count($loadBankQues).")"."<
 // "<a data-toggle='modal' href='#createAccount$i' class='btn btn-success'>  $i  </a>";
  ?>
    <input class="btn btn-success" name="" type="button" 
-   value="<?php echo $i; ?>" onclick="javascript:editQuestion('<?php echo $bankId; ?>', '<?php echo $qid; ?>', '<?php echo $i; ?>', 4)" style="cursor:pointer;" />
+   value="<?php echo $i; ?>" onclick="javascript:editQuestion('<?php echo $bankId; ?>', '<?php echo $qid; ?>', '<?php echo $i; ?>', 4)" style="cursor:pointer; margin:2px; padding: 5px; width: 30px !important;" />
 
  
  <?php

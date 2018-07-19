@@ -11,7 +11,7 @@
 <link href="css/jquery.timepicker.css" rel="stylesheet" media="screen">
  	<link rel="stylesheet" href="packages/dist/sweetalert.css">
 <link href="css/jquery-ui.css" rel="stylesheet" media="screen"> 
-<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/font-awesome/fontawesome-all.css">
 
 <link href="style/style.css" type="text/css" rel="stylesheet"  media="screen"/>
 <link rel="stylesheet" type="text/css" href="style/jGrowl/jquery.jgrowl.css"/>
@@ -112,6 +112,8 @@ Select Theme:
 
 
 </div>
+<script src="packages/dist/sweetalert.min.js"></script> 
+ 
 <?php  
   foreach ($arr_scripts as $eachscript) {
   	echo '<script type="text/JavaScript" src="style/' . $eachscript . '"></script>' . "\n";

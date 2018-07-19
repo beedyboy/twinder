@@ -8,7 +8,7 @@ $subId=$list[0];
 $bankIds=$list[1];  
 //$subId=$_GET['subId'];  
  
-$loadSubject = Database::loadTblCond2('beedygroupsub', 'subId', 'bankId', $subId, $bankIds);  
+$loadSubject = System::loadTblCond2('beedygroupsub', 'subId', 'bankId', $subId, $bankIds);  
   ?>
   <select class="form-control" id="cbankId" name="cbankId" onChange="getGroupBatch(this.value)" required>
 <?php 

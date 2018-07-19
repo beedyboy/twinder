@@ -61,7 +61,7 @@ endif;
 
 <div class="form-group">
 <label for="className">Subject:</label>
-	<?php $loadStudentClass = Database::loadDistinct('bankId','beedy_exam_result'); ?>
+	<?php $loadStudentClass = System::loadDistinct('bankId','beedy_exam_result'); ?>
 <select class="form-control" id="cbankId" name="cbankId" onChange="getSubjectClass(this.value)">
 <option value="">Select Subject </option>
  <?php 
@@ -69,8 +69,8 @@ if(!empty($loadStudentClass)):
 ?>
 <?php
 foreach($loadStudentClass as $CLASS):
- $subId = System::getColById('beedyGroupSub', 'bankId', $CLASS['bankId'], 1);  
- $bankId = System::getColById('beedyGroupSub', 'bankId', $CLASS['bankId'], 0);  
+ $subId = System::getColById('beedygroupsub', 'bankId', $CLASS['bankId'], 1);  
+ $bankId = System::getColById('beedygroupsub', 'bankId', $CLASS['bankId'], 0);  
 ?>	
 <option value="<?php echo $subId; ?>|<?php echo $bankId; ?>" >
 <?php echo System::getColById('beedysubjectlist', 'subId', $subId, 1); ?></option>
@@ -153,7 +153,7 @@ endif;
 
 
 <div class="form-group">
-<button type="submit" class="btn btn-cbt-success" title="Click to Save"><i class="icon-search icon-large"></i>&nbsp;Save Class</button>
+<button type="submit" class="btn btn-cbt-success" title="Click to Save"><i class="fa fa-search fa-fw"></i>&nbsp;Find Result</button>
  </div>
 </form>
 </div>

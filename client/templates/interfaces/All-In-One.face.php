@@ -1,5 +1,5 @@
 <?php 
-include('../../includes/system.php');
+// include('../../includes/system.php');
 
  $bankId=$_GET['bankId'];
  $stdAddNum=$_SESSION['cbt']['stdAddNum'];
@@ -22,20 +22,20 @@ $active=$Profile['Active'];
 $className =System::getColById('beedyclasslist', 'classId', $classId, 1); 
  ?> 
  
-<?php $subId = Database::getName('beedygroupsub', 'bankId',$bankId,1); ?>
- <?php $exambankId = Database::getName('beedygroupsub', 'bankId',$bankId, 3); ?>
-<?php $Exam_Instruction = Database::getName('beedygroupsub', 'bankId',$bankId,5); ?>
-<?php $duration = Database::getName('beedygroupsub', 'bankId',$bankId,6); ?>
-<?php $random = Database::getName('beedygroupsub', 'bankId',$bankId,10); ?>
-<?php $examTypeId = Database::getName('beedygroupsub', 'bankId',$bankId, 2); ?>
-<?php $examType = Database::getName('beedyexamtype', 'examTypeId', $examTypeId,1); ?>
- <?php $TotalQuestion = Database::getName('beedygroupsub', 'bankId',$bankId,7); ?>
+<?php $subId = System::getName('beedygroupsub', 'bankId',$bankId,1); ?>
+ <?php $exambankId = System::getName('beedygroupsub', 'bankId',$bankId, 3); ?>
+<?php $Exam_Instruction = System::getName('beedygroupsub', 'bankId',$bankId,5); ?>
+<?php $duration = System::getName('beedygroupsub', 'bankId',$bankId,6); ?>
+<?php $random = System::getName('beedygroupsub', 'bankId',$bankId,10); ?>
+<?php $examTypeId = System::getName('beedygroupsub', 'bankId',$bankId, 2); ?>
+<?php $examType = System::getName('beedyexamtype', 'examTypeId', $examTypeId,1); ?>
+ <?php $TotalQuestion = System::getName('beedygroupsub', 'bankId',$bankId,7); ?>
  
  <?php $loadIntQuestion =NULL;
  if($random =="Yes"): 
-$loadIntQuestion =   $GetExam->loadIntQuestion($bankId, $TotalQuestion);
+$loadIntQuestion =   Examination::loadIntQuestion($bankId, $TotalQuestion);
 else: 
-$loadIntQuestion =   $GetExam->loadIntQuestion2($bankId, $TotalQuestion);
+$loadIntQuestion =   Examination::loadIntQuestion2($bankId, $TotalQuestion);
 endif;
  ?>
 <!DOCTYPE html>
@@ -45,7 +45,7 @@ endif;
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Client Database</title>   
+    <title>Client System</title>   
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="../assets/css/bootstrap-toggle.css" rel="stylesheet">
 <link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
@@ -171,7 +171,7 @@ input:checked + .slider:before {
  </div>
  
  <div class="col-lg-6 examPanel allborder" id="examPanel">
- <div class="subName">  <?php echo Database::getName('beedysubjectlist', 'subId', $subId, 1); ?>  </div>
+ <div class="subName">  <?php echo System::getName('beedysubjectlist', 'subId', $subId, 1); ?>  </div>
  
  <!--exam-->
  <table class="table table-striped table-bordered">
@@ -193,6 +193,9 @@ input:checked + .slider:before {
   <?php   
      if($Exam_Question_Logo != ""):
 		  ?>
+
+     
+
 <table class="table table-bordered">
 <tr>
 <td> 
@@ -215,16 +218,17 @@ input:checked + .slider:before {
 	</td>
    </tr> 
    <tr>
+    <input type="hidden"  name="questionGiven[]" value="<?php echo $Question_Id; ?>">
     <td><span class="<?php if($Load['Exam_Option_A'] ==""): echo "hide"; endif; ?>">
 	<input type="radio" id="options[]"  name="options[<?php echo $Question_Id; ?>]" value="A">
    <?php echo $Load['Exam_Option_A']; ?> </span>
     <span class="<?php if($Load['Exam_Option_B']==""): echo "hide"; endif; ?>">  <input type="radio" id="options[]"  name="options[<?php echo $Question_Id; ?>]" value="B">
      <?php echo $Load['Exam_Option_B']; ?></span>
-      <span class="<?php if($Load['Exam_Option_C'] == " "): echo "hide"; endif; ?>">
+      <span class="<?php if($Load['Exam_Option_C'] == " " || $Load['Exam_Option_C'] == NULL): echo "hide"; endif; ?>">
 	  <input type="radio" id="options[]"  name="options[<?php echo $Question_Id; ?>]" value="C">
       <?php echo $Load['Exam_Option_C']; ?>
 	  </span>
-    <span class="<?php if($Load['Exam_Option_D'] == " "): echo "hide"; endif; ?>"> 
+    <span class="<?php if($Load['Exam_Option_D'] == " " || $Load['Exam_Option_D'] == NULL): echo "hide"; endif; ?>"> 
 	<input type="radio" id="options[]" name="options[<?php echo $Question_Id; ?>]" value="D">
       <?php echo $Load['Exam_Option_D']; ?>
 	  </span>
@@ -351,7 +355,26 @@ evt.preventDefault();
 
   <script type="text/javascript">
 function countdown(){
-		var m = $('.min');
+
+  var m = $('.min');
+    var s = $('.sec');
+    if(parseInt(m.html()) <=0  && parseInt(s.html()) <=0 )
+    {
+      submitOption();
+    }
+    else if(parseInt(m.html()) > 0 && parseInt(s.html()) <=0 )
+    {
+      m.html(parseInt(m.html()-1));
+      s.html(60); 
+    }
+    else if(parseInt(m.html()) <= 0 && parseInt(s.html()) >0 )
+    {
+      s.html(parseInt(s.html()-1));
+      // s.html(60); 
+    }
+
+
+		/*var m = $('.min');
 		var s = $('.sec');
 		if(m.html()==0 && parseInt(s.html()) <= 0){
 			//$('.clock').html('Time UP.');
@@ -365,7 +388,7 @@ function countdown(){
 			$('.clock').html('<span class="sec">59</span> seconds. ');
 		}
 		s.html(parseInt(s.html()-1));
-}
+}*/
 	 setInterval ('countdown()', 1000);	//setInterval ('countdown()', 1000);
 
 </script> 

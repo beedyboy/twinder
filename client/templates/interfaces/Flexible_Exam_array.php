@@ -81,7 +81,7 @@ color:#FFF;
 include('../../includes/system2.php');
 
 
-$conn = $GetDatabase->getInstance();
+$conn = $GetSystem->getInstance();
 
 date_default_timezone_set("Etc/GMT-8");  
 $index = $_GET['index'];  

@@ -18,6 +18,10 @@
 <link rel="stylesheet" type="text/css" href="style/custom.css"  media="screen" />
 <title>Login</title>
 <?php
+
+    $arr_scripts = array ('jquery.min.js', 'bootstrap.min.js','respond.min.js','beedy.js','beedyScript.js');
+  $arr_css = array ('pink.css','orange.css', 'red.css');
+   
  //include CSS files
 $setting_css = $_SESSION['cbt']['user_theme'];
 if (in_array($setting_css,$arr_css)) {

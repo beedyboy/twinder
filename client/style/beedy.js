@@ -62,7 +62,7 @@ $.ajax({
 			 location.href='../client/';
 			 } 
 		else if(result == 3) {
-			$("#login-bottom").removeClass('hide').addClass('alert-danger').html('<p>You do not have access to the server .</p>');
+			$("#login-bottom").removeClass('hide').addClass('alert-danger').html('<p>You do not have access to the client system.</p>');
 			$(_this).find(':input').attr('disabled',false);
 			$(_this).find(':button').attr('disabled',false);
 			$(_this).find(':button').html('Login');

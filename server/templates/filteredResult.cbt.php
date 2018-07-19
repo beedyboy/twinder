@@ -9,13 +9,13 @@ $B=4;
 $C=5;
 $D=6;
 	 
- $bankId  = Database::getName('beedy_exam_result', 'resultId', $resultId,1); 
- $Score  = Database::getName('beedy_exam_result', 'resultId', $resultId,5); 
- $Percentage  = Database::getName('beedy_exam_result', 'resultId', $resultId,6); 
- $Date  = Database::getName('beedy_exam_result', 'resultId', $resultId,7); 
- $Given  = Database::getName('beedy_exam_result', 'resultId', $resultId,8); 
- $question  = Database::getName('beedy_exam_result', 'resultId', $resultId,9); 
- $answer  = Database::getName('beedy_exam_result', 'resultId', $resultId,10); 
+ $bankId  = System::getName('beedy_exam_result', 'resultId', $resultId,1); 
+ $Score  = System::getName('beedy_exam_result', 'resultId', $resultId,5); 
+ $Percentage  = System::getName('beedy_exam_result', 'resultId', $resultId,6); 
+ $Date  = System::getName('beedy_exam_result', 'resultId', $resultId,7); 
+ $Given  = System::getName('beedy_exam_result', 'resultId', $resultId,8); 
+ $question  = System::getName('beedy_exam_result', 'resultId', $resultId,9); 
+ $answer  = System::getName('beedy_exam_result', 'resultId', $resultId,10); 
  
  $questionGiven = explode(',',$Given);
  $stdViewed = explode(',',$question);
@@ -24,11 +24,11 @@ $D=6;
  $questionGivenSize= count($questionGiven);
 
 // var_dump($answers);
- $Mark = Database::getName('beedygroupsub', 'bankId',$bankId,8);
- $Total_Question = Database::getName('beedygroupsub', 'bankId',$bankId,7);
+ $Mark = System::getName('beedygroupsub', 'bankId',$bankId,8);
+ $Total_Question = System::getName('beedygroupsub', 'bankId',$bankId,7);
  $obt = $Total_Question * $Mark; 
   
-$subId = Database::getName('beedygroupsub', 'bankId',$bankId,1);
+$subId = System::getName('beedygroupsub', 'bankId',$bankId,1);
  ?>
  
  <div class="row" class="submitForm">
@@ -53,7 +53,7 @@ $subId = Database::getName('beedygroupsub', 'bankId',$bankId,1);
  echo $full_name = System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 1)."\t".
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 2)."\t". 
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 3);  ?> </td>
-<td><?php echo $js= Database::getName('beedySubjectList', 'subId', $subId, 1); ?> </td>
+<td><?php echo $js= System::getName('beedySubjectList', 'subId', $subId, 1); ?> </td>
 <td><?php echo $Score; ?> </td>
 <td><?php echo $obt ?> </td>
 <td><?php echo $Percentage; ?> </td>
@@ -82,7 +82,7 @@ for($i=0; $i<$questionGivenSize; $i++){
 	?>
 	
 <tr>
-<td><?php echo Database::getName('beedy_question_bank','Question_Id', $questionGiven[$i],1); ?> </td>
+<td><?php echo System::getName('beedy_question_bank','Question_Id', $questionGiven[$i],1); ?> </td>
 
 <th><?php if (in_array($questionGiven[$i], $stdViewed)): echo "YES"; else: echo "NO"; endif; ?> </th>
 <th><?php  if(array_key_exists($i,$answers)): $selected = $answers[$i]; else: $selected = NULL;  endif; 
@@ -90,16 +90,16 @@ for($i=0; $i<$questionGivenSize; $i++){
 if($selected !=Null): echo "(".$selected.").\t"; endif;
 switch ($selected) {
 case "A":
-	echo Database::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$A);
+	echo System::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$A);
 	break;
 case "B":
-	echo Database::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$B);
+	echo System::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$B);
 	break;
 case "C":
-	echo Database::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$C);
+	echo System::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$C);
 	break;
 case "D":
-	echo Database::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$D);
+	echo System::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$D);
 	break; 
 default:
 	echo "-";
@@ -109,20 +109,20 @@ default:
 
 </th>
 
-<th><?php $rightOpt = Database::getName('beedy_question_bank','Question_Id', $questionGiven[$i],7); 
+<th><?php $rightOpt = System::getName('beedy_question_bank','Question_Id', $questionGiven[$i],7); 
 echo "(".$rightOpt.").\t";
 switch ($rightOpt) {
 case "A":
-	echo Database::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$A);
+	echo System::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$A);
 	break;
 case "B":
-	echo Database::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$B);
+	echo System::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$B);
 	break;
 case "C":
-	echo Database::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$C);
+	echo System::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$C);
 	break;
 case "D":
-	echo Database::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$D);
+	echo System::getName('beedy_question_bank','Question_Id', $questionGiven[$i],$D);
 	break;
 default:
 	echo null;

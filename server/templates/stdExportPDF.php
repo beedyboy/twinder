@@ -96,12 +96,12 @@ public function loadData($GetExam, $stdAddNum,$genStdBatchId,$SchoolTermId){
 $full_name= System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 1).'\t'. 
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 2).'\t'.
  System::getColById('beedystudentprofile', 'stdAddNum', $stdAddNum, 3);  
- $term = Database::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1); 
-$batch = Database::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1);
+ $term = System::getName('beedyschoolterm', 'SchoolTermId',$SchoolTermId,1); 
+$batch = System::getName('genstudentbatches', 'genStdBatchId',$genStdBatchId,1);
 $head = $full_name.'\t'.'-'.$batch.'\t'.'-'.$term;
 //  $filename = $head.'.pdf'; //Change File type CSV/TXT etc
  	  
-$resultInd  = $GetExam->resultInd($stdAddNum,$genStdBatchId,$SchoolTermId);
+$resultInd  =Examination::resultInd($stdAddNum,$genStdBatchId,$SchoolTermId);
  
 }
  
@@ -130,12 +130,12 @@ function FancyTable($header, $data)
 	foreach($data as $LIST)	{
 	
 	$bankId = $LIST['bankId']; 
-$subId = Database::getName('beedygroupsub', 'bankId',$bankId,1);
- $Total_Question = Database::getName('beedygroupsub', 'bankId',$bankId,7);
- $Mark = Database::getName('beedygroupsub', 'bankId',$bankId,8);
+$subId = System::getName('beedygroupsub', 'bankId',$bankId,1);
+ $Total_Question = System::getName('beedygroupsub', 'bankId',$bankId,7);
+ $Mark = System::getName('beedygroupsub', 'bankId',$bankId,8);
  $obt = $Total_Question * $Mark;
  	
-	$this->Cell($w[0],6, Database::getName('beedysubjectlist', 'subId', $subId, 1),'LR',0,'C',$fill);
+	$this->Cell($w[0],6, System::getName('beedysubjectlist', 'subId', $subId, 1),'LR',0,'C',$fill);
  $this->Cell($w[1],6,$LIST['Score'],'LR',0,'C',$fill);
  $this->Cell($w[2],6, $obt,'LR',0,'C',$fill);
 		$this->Cell($w[3],6,$LIST['Percentage'],'LR',0,'C',$fill);
@@ -154,7 +154,7 @@ $stdAddNum=$_GET['stdAddNum'];
 	  $genStdBatchId=$_GET['genStdBatchId']; 
 	  $SchoolTermId=$_GET['SchoolTermId']; 
 	  
- $resultInd  = $GetExam->resultInd($stdAddNum,$genStdBatchId,$SchoolTermId);
+ $resultInd  =Examination::resultInd($stdAddNum,$genStdBatchId,$SchoolTermId);
  $html ='<para><h1>PDF Result</h1><br>';
 	  
 	 ob_end_clean();

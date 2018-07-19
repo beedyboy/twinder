@@ -42,7 +42,7 @@ else{
 	$image = $File_Name;
 }
  
-if($existCheck = self::existTwo('beedystudentprofile',  'genStdBatchId', 'stdEmail',  $genStdBatchId, $stdEmail)==0)
+if($existCheck = System::existTwo('beedystudentprofile',  'genStdBatchId', 'stdEmail',  $genStdBatchId, $stdEmail)==0)
 {
 //$barcodeimg = $barcode.".png"; 
 $stmt = $conn->db->prepare("INSERT INTO beedystudentprofile (stdSurname, stdFirstName, stdMiddleName, 

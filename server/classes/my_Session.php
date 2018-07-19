@@ -12,7 +12,7 @@ class my_Session
 	public $user_image;
 	public $area_privilege;
 	public $adminId;
-	public $TransactionCode;
+	// public $TransactionCode;
 	
 	 
 	
@@ -41,7 +41,7 @@ class my_Session
 			 {
 				 $this->user_name = $_SESSION['user_name'] = $user_name;
 				$this->name = $_SESSION['name'] = $name; 
-				 $this->user_id = $_SESSION['user_id'] = $user_id;	 
+				 // $this->user_id = $_SESSION['user_id'] = $user_id;	 
 			
 			if(empty($user_image)): 
 			$this->user_image = $_SESSION['user_image'] = "images/no_image.jpg";
@@ -68,7 +68,7 @@ class my_Session
 	{
 			 if($user)
 			 {
-				 $this->TransactionCode = $_SESSION['TransactionCode'] = $number;
+				 // $this->TransactionCode = $_SESSION['TransactionCode'] = $number;
 				
  		 }
 	}
@@ -83,10 +83,10 @@ class my_Session
 		{
 			$this->user_name = $_SESSION['user_name'];
 			 $this->position = $_SESSION['position'];
-			 $this->TransactionCode = $_SESSION['TransactionCode'];
+			 // $this->TransactionCode = $_SESSION['TransactionCode'];
 			 $this->user_id = $_SESSION['user_id']; 
 			$this->name = $_SESSION['name']; 
-			$this->user_image = $_SESSION['user_image'];	
+			// $this->user_image = $_SESSION['user_image'];	
 			 $this->loggedin = true;
 			 
 			}
@@ -108,14 +108,14 @@ class my_Session
 		unset($_SESSION['user_id']);
 		unset($this->user_id);
 			
-			unset($_SESSION['TransactionCode']);
-		unset($this->TransactionCode);
+			// unset($_SESSION['TransactionCode']);
+		// unset($this->TransactionCode);
 		 
 		unset($_SESSION['name']);
 		unset($this->name); 
 		
-		unset($_SESSION['user_image']);
-		unset($this->user_image); 
+		// unset($_SESSION['user_image']);
+		// unset($this->user_image); 
 		 
 		$this->loggedin = false;
 		return true;

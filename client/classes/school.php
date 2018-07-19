@@ -56,7 +56,7 @@ return $select->fetchAll();
  ##################LOADER##########################
 public static function CreateLoaderGrp(){
 $conn = Database::getInstance();
-if($existCheck = self::existOne('beedygroup', 'bankName', $_POST['bankName'])==0)
+if($existCheck = System::existOne('beedygroup', 'bankName', $_POST['bankName'])==0)
 {
 	//$time = time();
 $stmt = $conn->db->prepare("INSERT INTO beedygroup (bankName) VALUES (:bankName)");
@@ -67,7 +67,7 @@ return 1; 	else: return 0;	endif; } else {return 2;}
 
 public static function addNewBankCourse(){
 $conn = Database::getInstance();
-if($existCheck = self::existTwo('beedygroupsub', 'exambankId', 'subId', $_POST['exambankId'], $_POST['subId'] )==0)
+if($existCheck = System::existTwo('beedygroupsub', 'exambankId', 'subId', $_POST['exambankId'], $_POST['subId'] )==0)
 {
 $stmt = $conn->db->prepare("INSERT INTO beedygroupsub (exambankId, subId, Exam_Instruction, Exam_Duration, Exam_Date)
  VALUES (:exambankId, :subId, :Exam_Instruction, :Exam_Duration, :Exam_Date)");

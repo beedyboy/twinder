@@ -53,6 +53,75 @@ $select->execute( );
 return $select;
 }
 
+public static function getName($tbl, $col, $id, $return){
+$conn = Database::getInstance();
+$select = $conn->db->prepare("SELECT * FROM $tbl WHERE $col LIKE ? ");
+$select->execute(array($id));
+return $select->fetchColumn($return); 
+}
+ 
+
+public function loadTbl($tbl){ 
+$conn = Database::getInstance();
+$select = $conn->db->prepare("SELECT * FROM $tbl");
+$select->execute();
+return $select->fetchAll();
+}
+
+public static function loadTblCond($tbl, $cond, $value){ 
+$conn = Database::getInstance();
+$select = $conn->db->prepare("SELECT * FROM $tbl WHERE $cond LIKE ?  ");
+$select->execute(array($value));
+return $select->fetchAll();
+}
+ 
+ public static function loadTblCond1($tbl, $cond, $value){
+$conn = Database::getInstance();
+$select = $conn->db->prepare("SELECT * FROM $tbl WHERE $cond LIKE ?  ");
+$select->execute(array($value));
+return $select;
+} 
+
+
+public static function loadTblCond2($tbl, $cond,  $cond2, $value, $value2){
+$conn = Database::getInstance();
+$select = $conn->db->prepare("SELECT * FROM $tbl WHERE $cond LIKE ? AND $cond2 LIKE ?  ");
+$select->execute(array($value, $value2));
+return $select->fetchAll();
+}
+
+
+
+public static function loadTblCond3($tbl, $cond,  $cond2, $value, $value2){
+$conn = Database::getInstance();
+$select = $conn->db->prepare("SELECT * FROM $tbl WHERE $cond LIKE ? AND $cond2 LIKE ?  ");
+$select->execute(array($value, $value2));
+return $select->fetchAll();
+}
+
+ /**
+  *@method     getField()                
+  * @return field column
+  */ 
+ public function getField($tbl, $return){ 
+ $select = $conn->db->prepare("SELECT * FROM $tbl");
+$select->execute();
+return $select->fetchColumn($return); 
+}
+
+public static function loadDistinct($col, $tbl){
+$conn = Database::getInstance();
+$select = $conn->db->prepare("SELECT DISTINCT $col FROM $tbl ");
+$select->execute();
+return $select->fetchAll();
+}
+public static function loadDistinctCond1($col, $tbl, $cond, $value){
+$conn = Database::getInstance();
+$select = $conn->db->prepare("SELECT DISTINCT $col FROM $tbl WHERE $cond = ? ");
+$select->execute(array($value));
+return $select->fetchAll();
+}
+
 public static function getColById($tbl, $col, $id, $return){
 $conn = Database::getInstance();
 $select = $conn->db->prepare("SELECT * FROM $tbl WHERE $col = ? Limit 1");
@@ -60,6 +129,12 @@ $select->execute(array($id));
 return $select->fetchColumn($return);
 }
    
+public static function addLogin($userType, $userValue, $email, $username, $password, $firstname, $lastname, $level){
+$conn = Database::getInstance(); 
+$addToLogin = $conn->db->prepare("INSERT INTO login ( $userType, email, username, password, firstname, lastname, level) VALUES (?,?,?,?,?,?,?)");
+$addToLogin->execute(array($userValue, $email, $username,md5($password),$firstname, $lastname,$level));
+}
+
 public static function uploadImage($FILES,$imagename, $path){
 $UploadDirectory	= 'uploads/'.$path; //specify upload directory ends with / (slash)
 //Is file size is less than allowed size.

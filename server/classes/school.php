@@ -163,8 +163,9 @@ return 2;
 }
 
 public static function addSchoolTerm(){
+    
 $conn = Database::getInstance();
-if($existCheck = self::existOne('beedyschoolterm', 'SchoolTermName', $_POST['genSchTerm'])==0)
+if($existCheck = System::existOne('beedychoolterm', 'SchoolTermName', $_POST['genSchTerm'])==0)
 {
 $stmt = $conn->db->prepare("INSERT INTO beedyschoolterm (SchoolTermName) VALUES (:SchoolTermName)");
 $stmt->bindParam(':SchoolTermName', $_POST['genSchTerm'], PDO::PARAM_STR); 
@@ -180,7 +181,7 @@ return 2;
  
 public static function addStdGroup(){
 $conn = Database::getInstance();
-if($existCheck = self::existOne('beedystdgroup', 'groupName', $_POST['stdGroup'])==0)
+if($existCheck = System::existOne('beedystdgroup', 'groupName', $_POST['stdGroup'])==0)
 {
 $stmt = $conn->db->prepare("INSERT INTO beedystdgroup (groupName) VALUES (:groupName)");
 $stmt->bindParam(':groupName', $_POST['stdGroup'], PDO::PARAM_STR); 
@@ -196,7 +197,7 @@ return 2;
  
 public static function addToClass(){
 $conn = Database::getInstance();
-if($existCheck = self::existTwo('beedyclasslist', 'groupId', 'className', $_POST['groupId'], $_POST['className'])==0)
+if($existCheck = System::existTwo('beedyclasslist', 'groupId', 'className', $_POST['groupId'], $_POST['className'])==0)
 {
 $stmt = $conn->db->prepare("INSERT INTO beedyclasslist (groupId, className) VALUES (:groupId, :className)");
 $stmt->bindParam(':groupId', $_POST['groupId'], PDO::PARAM_STR); 
@@ -213,7 +214,7 @@ return 2;
  
 public static function addClassSubject(){
 $conn = Database::getInstance();
-if($existCheck = self::existTwo('beedysubjectlist', 'classId', 'subjectName', $_POST['classId'], $_POST['subjectName'])==0)
+if($existCheck = System::existTwo('beedysubjectlist', 'classId', 'subjectName', $_POST['classId'], $_POST['subjectName'])==0)
 {
 $stmt = $conn->db->prepare("INSERT INTO beedysubjectlist (classId, subjectName) VALUES (:classId, :subjectName)");
 $stmt->bindParam(':classId', $_POST['classId'], PDO::PARAM_STR); 
@@ -240,17 +241,17 @@ $permitId = $_POST['permitId'];
 $File_Name  = strtolower($FILES['photo']['name']);
 if($File_Name!="")
 {
-$image = self::uploadImage($FILES,$barcode,'admin/');
+$image = System::uploadImage($FILES,$barcode,'admin/');
 }
 else{
 $image = $File_Name;
 } 
-if($existCheck = self::existTwo('systemadmin', 'username', 'email', $username, $email)==0)
+if($existCheck = System::existTwo('systemadmin', 'username', 'email', $username, $email)==0)
 { 
 $stmt = $conn->db->prepare("INSERT INTO systemadmin (firstName, lastName, area_privilege, email, username, password, image ) VALUES (?,?,?,?,?,?,?)");
 if($stmt->execute( array($firstName, $lastName, $permitId, $email,  $username, $password, $image) )):
 $sid = $conn->db->lastInsertId();
-self::addLogin('adminId', $sid, $email, $username, $password, $firstName, $lastName, 1); 
+System::addLogin('adminId', $sid, $email, $username, $password, $firstName, $lastName, 1); 
 return 1;
 else:	return 0; endif;
 } else {return 2; }
@@ -352,10 +353,7 @@ endif;
 if(isset($_POST['permit'])):
 $permit =  $_POST['permit']; 
 endif;
-//	$loaderAll;
-//echo $ldrSettings ;
-	
-//$permission = $schSettings.','.$grpSettings.','.$clsSettings.','.$subSettings.','.$stdSettings.','.$admSettings.','.$examSettings.','.$ldrSettings.','.$permit;
+ 
 $permission = $schSettings.','.$grpSettings.','.$clsSettings.','.$subSettings.','.$stdSettings.','.$admSettings.','.$examSettings.','.$ldrSettings.','.$permit;
 
 $stmt = $conn->db->prepare("INSERT INTO permissions (permissionGrp,allocations) VALUES (:permissionGrp,:allocations)");
@@ -422,7 +420,7 @@ $permitId = $_POST['permitId'];
 $username = $_POST['username']; 
 $password = $_POST['password']; 
 $adminId = $_POST['adminId']; 
-if($existCheck = self::existTwo('systemadmin', 'username','password', $username, $password)==0)
+if($existCheck = System::existTwo('systemadmin', 'username','password', $username, $password)==0)
 { 
 $updateClass = $conn->db->prepare("UPDATE systemadmin SET  firstName=:firstName, lastName=:lastName, email=:email, area_privilege=:permitId, username=:username,password=:password WHERE adminId=:adminId ");
 $updateClass->bindParam(':firstName', $firstName, PDO::PARAM_STR);

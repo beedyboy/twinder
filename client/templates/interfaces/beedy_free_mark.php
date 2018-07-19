@@ -1,4 +1,6 @@
 <?php 
+/*error_reporting(E_ALL);
+ini_set('display_errors', 1);*/
 include('../../includes/system2.php');
 $answerString = $_GET['answers'];
 
@@ -7,17 +9,17 @@ $questionsString = $_GET['questions'];
 $bankId=$_GET['bankId'];
 ?>
 
-<?php $subId = Database::getName('beedygroupsub', 'bankId',$bankId,1); ?>
-<?php $exambankId = Database::getName('beedygroupsub', 'bankId',$bankId, 3); ?> 
-<?php $examTypeId = Database::getName('beedygroupsub', 'bankId',$bankId, 2); ?>
-<?php $examType = Database::getName('beedyexamtype', 'examTypeId', $examTypeId,1); ?>
-<?php $TotalQuestion = Database::getName('beedygroupsub', 'bankId',$bankId,7); ?>
-<?php $mark = Database::getName('beedygroupsub', 'bankId',$bankId,8); ?>
-<?php $show_result = Database::getName('beedygroupsub', 'bankId',$bankId, 11); ?>
+<?php $subId = System::getName('beedygroupsub', 'bankId',$bankId,1); ?>
+<?php $exambankId = System::getName('beedygroupsub', 'bankId',$bankId, 3); ?> 
+<?php $examTypeId = System::getName('beedygroupsub', 'bankId',$bankId, 2); ?>
+<?php $examType = System::getName('beedyexamtype', 'examTypeId', $examTypeId,1); ?>
+<?php $TotalQuestion = System::getName('beedygroupsub', 'bankId',$bankId,7); ?>
+<?php $mark = System::getName('beedygroupsub', 'bankId',$bankId,8); ?>
+<?php $show_result = System::getName('beedygroupsub', 'bankId',$bankId, 11); ?>
 <?php
 //echo "Thank you for successfully answering the questions\n";
 
-
+ 
 $questionGiven = array(); 
 $questionGiven = $_SESSION['final'];
 $question = array();
@@ -27,10 +29,10 @@ $answer = explode(',', $answerString);
 $question = explode(',', $questionsString); 
 
 
-$CurrentSession =  Database::getField('beedyschooldata', 7);
-$CurrentTerm =  Database::getField('beedyschooldata', 8);
+  $CurrentSession =  System::getField('beedyschooldata', 7);
+ $CurrentTerm =  System::getField('beedyschooldata', 8);
 
-
+ 
 $stdAddNum=$_SESSION['cbt']['stdAddNum'];
 
 
@@ -54,33 +56,36 @@ $answers = implode(',', $answer);
 
 for($index =1; $index <= $TotalQuestion; $index++)
 {
-//$answer = $GetExam->markExam($index);
+//$answer = Examination::markExam($index);
 //		echo $index;
 }
 foreach ($question as $key=>$val)
 {
-$rightAnswer = $GetExam->markExam($val);
+$rightAnswer = Examination::markExam($val);
 //echo "-".$answer[$key];
 echo "<br />";
 
 if (array_key_exists($key, $answer)):
 if($rightAnswer===$answer[$key]){
 
-$score=$score+$mark;
+$score = $score+$mark;
 
 }
 else
 {
-$score=$score;
+// $score=$score;
 }
 endif;
 }
+ 
+ 
 //echo "<br />Score\n";
 //echo $score;
 //echo "<br>";
-$expected=($TotalQuestion * $mark);
+$expected = $TotalQuestion * $mark; // 5 * 2 = 10
 
-$result = ($score / $TotalQuestion) * 100;
+// $result = ($score / $TotalQuestion) * 100;  // 2/5 = 40%
+$result = ($score / $expected) * 100;  // 2/5 = 40%
 $perc= round($result,2).'%';
 
 $show='';
@@ -99,10 +104,9 @@ $show1= "<span style=color:red;font-size:30px;text-align:center>Percentage: $per
 
 }
 
-$GetExam->saveResult($bankId, $stdAddNum, $CurrentSession, $CurrentTerm, $score, $perc, $today,$questionGiven,$questions,$answers);
-
-
-  "<br>";
+	$ex = Examination::saveResult($bankId, $stdAddNum, $CurrentSession, $CurrentTerm, $score, $perc, $today, $questionGiven, $questions, $answers);
+	// Examination::saveResult($bankId, $stdAddNum, $CurrentSession, $CurrentTerm, $score, $perc, $today, $questionGiven, $questions, $answers);
+ 
  unset($_POST); 
 if(!isset($_SESSION)){
 	session_start();

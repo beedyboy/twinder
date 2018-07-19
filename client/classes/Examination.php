@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
  require_once "Database.php";
   
 class Examination extends Database{
@@ -108,16 +110,15 @@ return $select->fetchColumn(7);
 
 public static function saveResult($bankId,$stdAddNum,$genStdBatchId, $SchoolTermId, $Score,$Percentage, $today, $questionGiven, $question, $answer){
 $conn = Database::getInstance();
-$stmt = $conn->db->prepare("INSERT INTO beedy_exam_result
- (bankId, stdAddNum, genStdBatchId, SchoolTermId, Score, Percentage, Date, questionGiven, question, answer) 
- VALUES (:bankId, :stdAddNum, :genStdBatchId, :SchoolTermId, :Score, :Percentage, :Date, :questionGiven, :question, :answer)");
+$stmt = $conn->db->prepare("INSERT INTO beedy_exam_result (bankId, stdAddNum, genStdBatchId, SchoolTermId, Score, Percentage, Date, questionGiven, question, answer) 
+ VALUES (:bankId, :stdAddNum, :genStdBatchId, :SchoolTermId, :Score, :Percentage, :Datedate, :questionGiven, :question, :answer)");
 $stmt->bindParam(':bankId', $bankId); 
 $stmt->bindParam(':stdAddNum', $stdAddNum );
 $stmt->bindParam(':genStdBatchId', $genStdBatchId );
 $stmt->bindParam(':SchoolTermId', $SchoolTermId );
 $stmt->bindParam(':Score', $Score );
 $stmt->bindParam(':Percentage', $Percentage );
-$stmt->bindParam(':Date', $today );
+$stmt->bindParam(':Datedate', $today );
 $stmt->bindParam(':questionGiven', $questionGiven );
 $stmt->bindParam(':question', $question );
 $stmt->bindParam(':answer', $answer );
