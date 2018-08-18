@@ -100,6 +100,22 @@ session_destroy();
 <script src="../style/jquery.typeText.js"></script>
  
 
+ <script>
+$(document).ready(function() {
+    return $(".print").typeText({
+      then: function() {
+        return this.typeText("", {
+          typeSpeed: 250,
+          then: function() {
+            return this.typeText("", {
+              typeSpeed: 500
+            });
+          }
+        });
+      }
+    });
+  });
+</script>
 </div>
 </body>
 </html>

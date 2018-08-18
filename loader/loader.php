@@ -52,7 +52,7 @@ echo $feedbck;
 }
 if($_POST['action'] == "CreateLoaderGrp"){echo $GetSchool->CreateLoaderGrp($_POST);} 
 if($_POST['action'] == "addNewBankCourse"){echo $GetExam->addNewBankCourse($_POST);}
-if($_POST['action'] == "AddComplete"){echo $GetExam->AddComplete($_POST, $_FILES);}
+if($_POST['action'] == "AddComplete"){ echo $GetExam->AddComplete($_POST, $_FILES);}
 if($_POST['action'] == "AddLogical"){echo $GetExam->AddLogical($_POST, $_FILES);}
 if($_POST['action'] == "normal"){echo $GetExam->updateQuestion($_POST, $_FILES);}
 if($_POST['action'] == "applyCompleteform"){echo $GetExam->updateQuestion($_POST, $_FILES);}

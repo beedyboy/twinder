@@ -42,17 +42,21 @@ return 1; 	else: return 0;	endif; } else {return 2;}
 }
 
  
-public static function AddComplete($POST, $FILES){
+public static function AddComplete($POST, $FILES){ 
+ 
 $conn = Database::getInstance();
 $barcode = substr(number_format(time() * rand(),0,'',''),0,13);
-$File_Name  = strtolower($FILES['photo']['name']);
+$File_Name  = strtolower($FILES['photo']['name']); 
 if($File_Name!="")
 {
- $image = self::uploadImage($FILES,$barcode,'bank/');
+ $image =   System::uploadImage($FILES,$barcode,'bank/');
+  
 }
 else{
 	$image = $File_Name;
-} 
+	} 
+// echo $image; exit;
+
  $query = $conn->db->prepare("INSERT INTO beedy_question_bank (bankId, Exam_Question, Exam_Question_Logo, Exam_Option_A, Exam_Option_B,
  Exam_Option_C, Exam_Option_D, Exam_Answer) 
  VALUES (:bankId, :question, :Exam_Question_Logo, :optionA, :optionB, :optionC, :optionD, :options)");
@@ -74,7 +78,7 @@ $barcode = substr(number_format(time() * rand(),0,'',''),0,13);
 $File_Name  = strtolower($FILES['photo']['name']);
 if($File_Name!="")
 {
- $image = self::uploadImage($FILES,$barcode,'bank/');
+ $image = System::uploadImage($FILES,$barcode,'bank/');
 }
 else{
 	$image = $File_Name;
@@ -99,7 +103,7 @@ public static function updateQuestion($POST, $FILES){
 $File_Name  = strtolower($FILES['photo']['name']);
 if($File_Name!="")
 {
- $image = self::uploadImage($FILES,$barcode,'bank/');
+ $image = System::uploadImage($FILES,$barcode,'bank/');
  
 $query = $conn->db->prepare("UPDATE beedy_question_bank SET Exam_Question=:question, Exam_Question_Logo=:Exam_Question_Logo, Exam_Option_A=:optionA, Exam_Option_B=:optionB, 
 Exam_Option_C=:optionC, Exam_Option_D=:optionD, Exam_Answer=:options WHERE Question_Id=:Question_Id");
@@ -134,7 +138,7 @@ $File_Name  = strtolower($FILES['photo']['name']);
 $empty =NULL;
 if($File_Name!="")
 {
- $image = self::uploadImage($FILES,$barcode,'bank/');
+ $image = System::uploadImage($FILES,$barcode,'bank/');
  $query = $conn->db->prepare("UPDATE beedy_question_bank SET Exam_Question=:question, Exam_Question_Logo=:Exam_Question_Logo, Exam_Option_A=:optionA, Exam_Option_B=:optionB, 
 Exam_Option_C=:optionC, Exam_Option_D=:optionD, Exam_Answer=:options WHERE Question_Id=:Question_Id");
 $query->bindParam(':Question_Id', $POST['questionno'], PDO::PARAM_INT);

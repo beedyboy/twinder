@@ -4,7 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta name="description" content="TWINDER <?php echo $meta_description ;?>	" />
 <meta name="keywords" content="TWINDER  <?php echo $meta_keywords; ?> " /> 
-
+ 
+<link rel="shortcut icon" href="../<?php echo _SCHOOL_LOGO; ?>">
 
 <link href="css/font-awesome.css" rel="stylesheet" media="screen">
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">

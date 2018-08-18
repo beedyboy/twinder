@@ -41,7 +41,9 @@ $process= $GetExam->process($stdAddNum,$bankId);
 					 
 				endforeach;
 else:
-			echo "You have not been registered for any courses"; 
+			echo "<div class='jumbotron'>
+		<h1>You have not been registered for any courses<h1>
+		</div>"; 
 			endif; 
 
 						?>

@@ -12,7 +12,7 @@ $( document ).on( "submit", "#addNewBankCourse", function( e ) { addNewBankCours
  
  $( document ).on( "change", "#classIdSelect", function( e ) { getSubjectList(e);} );
 // add section here 
-//alert('hey');
+// alert('hey');
 
 function loginProcess(evt){
 var _this = $(evt.target);
@@ -69,7 +69,7 @@ cache: false,             // To unable request pages to be cached
 processData:false ,
 success: function(result)   // A function to be called if request succeeds
 { 
-//swal(result);
+// alert(result);
  if(result == 1) {
 			swal("Question added successfully");
 			$("form").find(':input').attr('disabled',false);

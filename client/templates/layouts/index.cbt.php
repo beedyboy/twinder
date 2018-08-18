@@ -13,6 +13,9 @@
 <link href="css/jquery-ui.css" rel="stylesheet" media="screen"> 
 <link rel="stylesheet" href="css/font-awesome.min.css">
 
+
+   <link rel="shortcut icon" href="../<?php echo _SCHOOL_LOGO; ?>">
+
 <link href="style/style.css" type="text/css" rel="stylesheet"  media="screen"/>
 <link rel="stylesheet" type="text/css" href="style/jGrowl/jquery.jgrowl.css"/>
 <link rel="stylesheet" type="text/css" href="style/custom.css"  media="screen" />
